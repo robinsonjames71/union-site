@@ -1,0 +1,74 @@
+
+
+.hero-image
+  width: 100%
+  display: block
+
+.heros
+  position: relative
+
+// .heros
+//   position: relative
+//   // padding-top: 6em
+//   background-repeat: no-repeat
+//   background-size: cover
+//   background-position: center
+//   overflow: hidden
+
+//   +touch
+//     background-image: none!important
+//   +desktop
+//     max-height: 900px
+
+
+//   .hero-text
+//     +desktop
+//       position: absolute
+//       left: 0
+//       right: 0
+
+//   .image-caption
+//     +desktop
+//       position: absolute
+//       top: 0px
+//       right: 10px
+
+.hero1
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100vw
+  height: 100vh
+  img
+    max-width: 150px
+    +tablet
+      max-width: 220px
+  .hero-text
+    height: 70px
+    position: absolute
+    bottom: 0
+    text-align: center
+  .line
+    display: inline-block
+    width: 1px
+    height: 40px
+    position: absolute
+    bottom: 0
+    background-color: #000
+  p
+    color: #000
+
+
+.hero2
+  .image-parallax
+    position: absolute
+    bottom: 0
+    z-index: 5
+  .hero-text
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+
+.hero--slider
+  +mobile
+    min-height: 320px

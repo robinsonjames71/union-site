@@ -1,0 +1,20 @@
+
+.big-link
+  min-height: 326px
+  +tablet
+    min-height: 426px
+  text-align: center
+
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid #1F1F2A
+
+  font-family: $body-family
+
+  &:hover
+    border-top: 1px solid $cyan
+
+  +desktop
+    &:first-of-type
+      border-right: none

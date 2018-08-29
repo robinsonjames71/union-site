@@ -1,0 +1,19 @@
+<div
+	class="heros hero1 {{row_item.menu_colour}}-menu"
+	id="{{row_item.row_id}}"
+    style="background-color:{{row_item.background_colour}};"
+>
+    <picture>
+        <source media="(min-width: 768px)"
+                sizes="220px"
+                srcset="{{ TimberImage(row_item.image).src | resize(220) }} 220w">
+        <img srcset="{{ TimberImage(row_item.image).src | resize(150) }} 150w"
+             src="{{ TimberImage(row_item.image).src | resize(150) }} 150w"
+             alt="{{ row_item.image.alt }}">
+    </picture>
+
+	<div class="hero-text">
+		<p>{{row_item.slogan}}</p>
+		<div class="line"></div>
+	</div>
+</div>

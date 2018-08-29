@@ -1,0 +1,107 @@
+
+$radius-small: 0px
+$radius: 0px
+$radius-large: 0px
+
+$control-radius: $radius !default
+$control-radius-small: $radius-small !default
+
+// $control-padding-vertical: calc(0.375em - 1px) !default
+// $control-padding-horizontal: calc(0.625em - 1px) !default
+
+// // Update blue
+// $blue: #72d0eb;
+// // Add pink and its invert
+// $pink: #ffb3b3;
+// $pink-invert: #fff;
+// // Add a serif family
+$family-serif: $font-medium
+//
+// // 3. Set the derived variables
+// // Use the new pink as the primary color
+// $primary: $pink;
+// $primary-invert: $pink-invert;
+// // Use the existing orange as the danger color
+// $danger: $orange;
+// // Use the new serif family
+$family-primary: $family-serif
+//
+// 4. Setup your Custom Colors
+
+$primary: #03acef
+
+$red: #f8473a
+$pink: #e72d8c
+$purple: #4d2953
+$yellow: #ffea43
+$yellow-light: #F9DE75
+$pink-light: #fac9cc
+
+$white: #ffffff
+$black: #2D2D2D
+$grey: #C0C2C1
+$grey-dark: #53545b
+$grey-light: #EBEBEB
+
+$link: $white
+$link-hover: $white
+
+$navbar-height: 64px
+$navbar-item-img-max-height: 2.1rem
+
+$size-1: 5rem !default
+$size-2: 3rem !default
+$size-3: 2rem !default
+$size-4: 1.5rem !default
+$size-5: 1.25rem !default
+$size-6: 1rem !default
+$size-7: 0.8rem !default
+
+$table-color: white
+$table-background-color: black
+$table-cell-border: 1px solid #1F1F2A
+$table-cell-padding: 3em 2.5em 8em 0
+$table-cell-heading-color: white
+$table-head-cell-border-width: 0 0 1px
+$table-head-cell-color: white
+
+
+
+@import "~bulma/sass/utilities/functions.sass"
+@import "~bulma/sass/utilities/mixins.sass"
+
+$input-color: $white
+$input-background-color: $grey-darker
+$input-border-color: $grey-darker
+
+$input-hover-color: $grey-darker
+$input-hover-border-color: $grey-darker
+
+$input-focus-color: $grey-darker
+$input-focus-border-color: $grey-darker
+
+$label-color: $white-ter
+
+@import "./initial-variables"
+@import "./derived-variables"
+@import "./generic-values"
+
+// 2. Set your own initial variables
+
+
+
+// $linkedin: #0077B5;
+// $linkedin-invert: findColorInvert($linkedin);
+// $twitter: #1DA1F2;
+// $twitter-invert: findColorInvert($twitter);
+// $github: #222222;
+// $github-invert: findColorInvert($github);
+//
+// // 5. Add new color variables to the color map.
+// @import "~bulma/sass/utilities/derived-variables.sass";
+// $addColors: (
+//   "twitter":($twitter, $twitter-invert),
+//   "linkedin": ($linkedin, $linkedin-invert),
+//   "github": ($github, $github-invert)
+// );
+// $colors: map-merge($colors, $addColors);

@@ -1,0 +1,13 @@
+<div
+    class="two_column_text {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+    style="background-color:{{row_item.background_colour}}"
+>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-two-thirds {% if row_item.align_column == 'right' %}is-offset-one-third{% endif %}">
+                <div class="copy" style="color:{{row_item.text_colour}};">{{row_item.text}}</div>
+            </div>
+        </div>
+    </div>
+</div>

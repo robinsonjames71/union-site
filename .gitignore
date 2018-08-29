@@ -1,0 +1,7 @@
+.DS_Store
+.settings
+.buildpath
+.project
+assets
+!wordpress/wp-content/themes/union/node_modules
+wordpress/wp-content/themes/union/node_modules

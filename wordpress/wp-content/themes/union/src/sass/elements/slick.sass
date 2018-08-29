@@ -1,0 +1,137 @@
+// .slick-list
+//   border-radius: 10px
+
+
+.slick-prev, .slick-next
+  z-index: 1
+  width: 50px
+  height: 56px
+  display: none
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out
+  background-position: center
+  background-repeat: no-repeat
+  background-color: $black
+
+  .slick-product &
+
+    +tablet
+      display: block
+      opacity: 1
+
+  +desktop
+    opacity: 0
+
+  &:hover, &:focus
+    background-color: $black
+    background-position: center
+    background-repeat: no-repeat
+
+  &:before
+    content: none
+
+  +desktop
+    display: block
+
+.slick-prev
+  left: -1px
+  background-image: url(../img/arrow-left.svg)
+  // transform: translateX(-10px) translateY(-50%)
+
+  &:hover, &:focus
+    background-image: url(../img/arrow-left.svg)
+    animation: arrowleftflick 0.4s ease
+    // transform: translateX(-10px) translateY(-50%)
+
+.slick-next
+  right: -1px
+  background-image: url(../img/arrow-right.svg)
+  // transform: translateX(10px) translateY(-50%)
+
+  &:hover, &:focus
+    background-image: url(../img/arrow-right.svg)
+    animation: arrowrightflick 0.4s ease
+    // transform: translateX(10px) translateY(-50%)
+
+@keyframes arrowrightflick
+  0%
+    transform: translateX(0px) translateY(-50%)
+  50%
+    transform: translateX(5px) translateY(-50%)
+  100%
+    transform: translateX(0px) translateY(-50%)
+
+@keyframes arrowleftflick
+  0%
+    transform: translateX(0px) translateY(-50%)
+  50%
+    transform: translateX(-5px) translateY(-50%)
+  100%
+    transform: translateX(0px) translateY(-50%)
+
+.slick-dotted.slick-slider
+  margin-bottom: 0em
+
+.slick-dots
+  bottom: 1.5em
+
+  li
+    margin: 0
+    width: auto
+    height: auto
+    transition: transform 0.2s ease-in-out
+
+    &:hover
+      transform: scale(1.3) translateX(5%)
+
+    button
+      width: 8px
+      height: 8px
+      margin-left: 4px
+      margin-right: 4px
+
+      &:before
+        content: ''
+        width: 8px
+        height: 8px
+        background-color: rgba(darken($white, 20%), 0.5)
+        border-radius: 50%
+        opacity: 1
+        transition: background 0.2s ease
+
+    &.slick-active
+      button
+        &:before
+          opacity: 1
+          background-color: $white
+
+.slick, .slick-product
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 5
+
+  .single-post &
+    position: relative
+    height: auto
+    margin-bottom: 2em
+
+  &:hover
+    .slick-prev, .slick-next
+      opacity: 1
+      // transform: translateX(0px) translateY(0%)
+
+.slick, .slick-list, .slick-slide, .slick-track
+  height: 100%
+
+.slick-background-image
+  height: 100%
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover

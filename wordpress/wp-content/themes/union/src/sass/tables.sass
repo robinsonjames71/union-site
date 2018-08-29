@@ -1,0 +1,129 @@
+.comparison-table-container
+  position: relative
+
+  .comparison-table__scroller
+    position: absolute
+    right: 0
+    width: 100px
+    top: 0
+    bottom: 0
+    z-index: 1
+
+    &:after, &:before
+      content: ""
+      position: absolute
+      right: 0
+      width: 100%
+      top: 0
+
+      +touch
+        right: -2em
+
+    &:before
+      pointer-events: none
+      background-image: linear-gradient(90deg, rgba(#000000 ,0.00) 0%, #000000 100%)
+      bottom: 0
+
+    &:after
+      font-family: "DaimlerCS-Demi", "Arial", sans-serif
+      font-size: 12px
+      top: 0.5em
+      content: "SCROLL"
+      padding: 1em 2em
+      box-shadow: 0 0 0.4em 0.4em black
+      background-color: black
+      background-image: url(../img/arrow-right.svg)
+      background-position: 90% 1.2em
+      background-repeat: no-repeat
+      animation: scrollArrow 2s ease infinite
+
+@keyframes scrollArrow
+  0%
+    background-position: 90% 1.2em
+  50%
+    background-position: 90% 1.2em
+  75%
+    background-position: 100% 1.2em
+  100%
+    background-position: 90% 1.2em
+
+.comparison-table
+  margin-top: 5em
+
+  display: block
+  overflow-x: auto
+  -webkit-overflow-scrolling: touch
+
+  // &::-webkit-scrollbar-track
+  // 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+  // 	border-radius: 10px
+  // 	background-color: #F5F5F5
+
+  // &::-webkit-scrollbar
+  // 	background-color: grey
+  //
+  //
+  // &::-webkit-scrollbar-thumb
+  // 	border-radius: 10px
+  // 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3)
+  // 	background-color: #555
+
+  // &:after
+  //   content: ""
+  //   position: absolute
+  //   right: 0
+  //   top: 0
+  //   bottom: 0
+  //   width: 0px
+  //   background-color: black
+  //   box-shadow: 0 0 200px 100px black
+
+  +touch
+    border: 1px solid #1F1F2A
+    margin-left: -1.5em
+    margin-right: -1.5em
+
+    thead
+      th
+        &:first-of-type
+          visibility: hidden
+
+  thead
+    th
+      padding: 1.5em 3em 1.5em 0
+      text-transform: uppercase
+      font-family: "DaimlerCS-Demi", "Arial", sans-serif
+      font-weight: normal
+      font-size: 12px
+
+  td
+    min-width: 320px
+    width: 25%
+
+  tbody
+
+    th
+      min-width: 50px
+      width: 25%
+
+      +touch
+        position: relative
+        padding: 3em 2.5em 3em 0
+
+        &:after
+          content: ""
+          position: absolute
+          top: 0
+          bottom: 0
+          right: 1em
+          width: 1px
+          background-color: #1F1F2A
+
+        .title
+          position: absolute
+          transform-origin: bottom left
+          transform: translateY(-0.5em) rotate(90deg) translateY(-0.5em)
+          white-space: nowrap
+
+      +desktop
+        min-width: 310px

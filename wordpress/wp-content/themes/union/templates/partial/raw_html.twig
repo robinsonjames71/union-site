@@ -1,0 +1,69 @@
+<section class="section" id="{{row_item.row_id}}">
+	{{ row_item.raw_html }}
+
+{# NOW IN THE CMS
+  <h2 class="title is-size-2 is-size-3-touch has-text-centered">You X-Class your way.</h2>
+
+  <div id="hotspots" class="hotspots-container">
+
+    <div class="container">
+
+      <div class="hotspots">
+        <div class="hotspots-image">
+          <img src="{{ site.theme.link }}/img/imagemap-ute-transparent.png">
+          <div class="hotspot hotspot-canopy" @mouseenter="showDetail(1)" @click="showDetail(1)"></div>
+          <div class="hotspot hotspot-stylingbar" @mouseenter="showDetail(2)" @click="showDetail(2)"></div>
+          <div class="hotspot hotspot-towbar" @mouseenter="showDetail(3)" @click="showDetail(3)"></div>
+          <!-- <div class="hotspot hotspot-garminmappilot" @mouseenter="showDetail(4)" @click="showDetail(4)"></div> -->
+          <div class="hotspot hotspot-roofracks" @mouseenter="showDetail(5)" @click="showDetail(5)"></div>
+          <!-- <div class="hotspot hotspot-sidestep" @mouseenter="showDetail(6)" @click="showDetail(6)"></div> -->
+        </div>
+
+      </div>
+
+      <div class="hotspot-details" v-cloak>
+
+        <transition name="fade" mode="out-in">
+
+          <div class="hotspot-detail" v-if="detailActive === 1" key="1">
+            <h1 class="features-table-item-title">Canopy</h1>
+            <p>If you need to keep your cargo covered in style, add a canopy to your X-Class. Available in a variety of colours.</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 2" key="2">
+            <h1 class="features-table-item-title">Styling bar</h1>
+            <p>The solid, scratch-resistant styling bar in polished stainless steel fits perfectly in with the pickup’s bold design. Swift to fit and remove, the styling bar combines to perfection with the hard cover. Also available in black.</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 3" key="3">
+            <h1 class="features-table-item-title">Tow bar</h1>
+            <p>The Genuine Equipment Towbar wiring harness and brake controller allows the vehicle to move effortlessly to workhorse. With either 3500kg or 3200kg tow rating, no load is too big or too small</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 4" key="4">
+            <h1 class="features-table-item-title">Garmin MapPilot</h1>
+            <p>Never lose your way with the Garmin MapPilot. Type in your destination then  sit back and enjoy your trouble free journey. The Garmin MapPilot's smooth corners and slender body lend it a pleasing aesthetic.</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 5" key="5">
+            <h1 class="features-table-item-title">Roof Racks</h1>
+            <p>Protect your equipment from the stresses of transportation by adding a stylish roof rack to your X-Class. Roof racks also add extra capacity for luggage if you want to avoid using a trailer.</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 6" key="6">
+            <h1 class="features-table-item-title">Side Step</h1>
+            <p>Enter, exit and load your X-Class effortlessly by adding a side step. Sturdy and smoothly contoured, the side step gives your X-Class a personality of its own.</p>
+          </div>
+
+        </transition>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <p class="has-text-centered"><a href="#specs" class="button is-black small-link">Detailed accessories</a></p>
+#}
+</section>

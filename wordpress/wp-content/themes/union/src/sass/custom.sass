@@ -1,0 +1,155 @@
+// .title
+//   color: white
+//   font-family: $font-bold
+//   // font-family: "DaimlerCAC-Regular", "Arial", sans-serif
+//   font-weight: normal
+//   font-style: normal
+//   line-height: 0.9
+
+.has-text-pink
+  color: $pink
+
+.has-text-purple
+  color: $purple
+
+.has-text-yellow
+  color: $yellow
+
+.has-text-yellow-light
+  color: $yellow-light
+
+.has-text-pink-light
+  color: $pink-light
+
+.has-text-grey-dark
+  color: $grey-dark
+
+.has-text-grey
+  color: $grey-dark
+
+
+.has-background-pink
+  background-color: $pink
+
+.has-background-purple
+  background-color: $purple
+
+.has-background-yellow
+  background-color: $yellow
+
+.has-background-yellow-light
+  background-color: $yellow-light
+
+.has-background-pink-light
+  background-color: $pink-light
+
+.has-background-white
+  background-color: $white
+
+.has-background-grey-dark
+  background-color: $grey-dark
+
+.has-background-grey
+  background-color: $grey
+
+.has-background-grey-light
+  background-color: $grey-light
+
+.has-background-black
+  background-color: $black
+
+.is-hidden-tablet-custom
+  +tablet
+    display: none !important
+
+.section
+  padding: 3rem 1.25rem
+  +tablet
+    padding: 3rem 4.125rem
+
+// .has-background-white-gradient
+//   background-image: linear-gradient(135deg, rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.50) 100%)
+//
+// .has-background-grey-dark-gradient
+//   background-image: linear-gradient(135deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.50) 100%)
+//
+// .has-background-pattern
+//   background-image: url(../img/background-pattern.svg)
+//   background-size: 65px
+//   background-position: center
+
+.font-normalize
+  font-family: 'Arial', sans-serif
+
+.is-size-3-mobile-small
+  +until(321)
+    font-size: 2rem!important
+
+hr
+  background-color: #979797
+  margin-top: 3em
+  margin-left: 1.5em
+  margin-bottom: 0
+  margin-right: 1.5em
+  +tablet
+    margin-left: 4em
+    margin-right: 4em
+
+
+.content
+  a
+    text-decoration: none
+    transition: opacity 0.4s ease
+
+    &:hover
+      text-decoration: underline
+
+    &:active
+      opacity: 0.6
+
+  &.has-text-white
+    a
+      color: white
+
+// Overides
+.nav-section
+  padding-top: 0
+  padding-bottom: 0
+.navbar
+  width: 100%
+  margin-top: 50px
+  margin-right: 30px
+  +tablet
+    margin-top: 70px
+  +tablet
+    margin-top: 0
+
+  .slogan
+    padding-left: 20px;
+
+
+.site-header,
+.site-header + div
+  margin-top: 64px
+  +tablet
+    margin-top: 0
+
+#header .hero-text
+  +tablet
+    position: absolute
+    bottom: auto
+    top: 50%
+    transform: translateY(-50%) !important
+
+.cta_button
+  background-color: #00adef
+  color: #ffffff
+  border-color: transparent
+  margin-top: 15px
+  padding: 1.5em
+  transition: 0.3s
+  &:hover
+    background-color: #0088c6
+    border: 1px solid transparent
+
+

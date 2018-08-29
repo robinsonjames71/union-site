@@ -1,0 +1,27 @@
+<div
+    class="heros hero3 {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+>
+
+    <picture>
+        <source media="(min-width: 768px)"
+                sizes="100vw"
+                srcset="{{ TimberImage(row_item.image).src | resize(1024) }} 1024w,
+                        {{ TimberImage(row_item.image).src | resize(512) }} 512w,
+                        {{ TimberImage(row_item.image).src | resize(2048) }} 2048w">
+        <img srcset="{{ TimberImage(row_item.image_mobile).src | resize(640) }} 640w,
+                     {{ TimberImage(row_item.image_mobile).src | resize(320) }} 320w"
+             src="{{ TimberImage(row_item.image_mobile).src | resize(320) }} 320w"
+             alt="{{ row_item.image_mobile.alt }}">
+    </picture>
+
+    <div class="hero-text">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4-desktop has-text-centered">
+                    <h1>{{row_item.title}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

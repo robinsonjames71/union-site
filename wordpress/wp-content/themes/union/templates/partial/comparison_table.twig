@@ -1,0 +1,41 @@
+<section class="section is-medium" id="{{row_item.row_id}}">
+
+	<div class="container">
+
+		<h1 class="title is-size-2 is-size-3-touch has-text-centered">Grade Comparison</h1>
+		<p class="has-text-centered">{{row_item.header_sub_text}}</p>
+
+		<div class="comparison-table-container">
+
+			<div class="comparison-table__scroller"></div>
+
+			<table id="comparison-table-scroller" class="table comparison-table">
+				{# output table header e.g. Body, Wheels, Stero, Navigation #}
+				<thead>
+					{% for comparison_header_item in row_item.row_header %}
+						<th>{{ comparison_header_item.header }}</th>
+					{% endfor %}
+				</thead>
+				<tbody>
+					{# output table rows  #}
+					{% for comparison_row in row_item.rows %}
+						{# col1 e.g Pure, Progressive, Power #}
+						<tr>
+							<th><h4 class="title is-size-2 is-size-4-touch">{{ comparison_row.row_title }}</h4></th>
+							{# cols that match to table header #}
+							{% for comparison_row_row_item in comparison_row.row_items %}
+								<td>
+									<!--<p>{{ comparison_row_row_item.title }}</p>-->
+									<p>{{ comparison_row_row_item.description }}</p>
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+
+</section>

@@ -1,0 +1,61 @@
+<div class="split image-left-text-right" style="background-color:{{row_item.background_colour}};{% if row_item.text_colour %}color:{{row_item.text_colour}};{% endif %}" id="{{row_item.row_id}}">
+  <div class="columns is-gapless is-desktop">
+    <div class="column">
+      <div class="split-image-with-text">
+
+        <!-- <div
+          class="hero-background-image b-lazy"
+          data-src="{{ TimberImage(row_item.image).src | resize(800) }}"
+        	data-src-medium="{{ TimberImage(row_item.image).src | resize(700) }}"
+        >
+        </div> -->
+        <div class="split-image-container">
+          <img sizes="100vw, (min-width: 1024px) 50vw"
+               srcset="{{ TimberImage(row_item.image).src | resize(700) }} 700w"
+               src="{{ TimberImage(row_item.image).src | resize(800) }}" alt="">
+        </div>
+
+        {% if row_item.image_caption %}
+          <div class="split-image-with-text-text image-caption">{{row_item.image_caption}}</div>
+        {% endif  %}
+      </div>
+    </div>
+    <div class="column is-6-desktop">
+      <div class="split-text">
+        <div class="section">
+          <h2 class="title is-size-2 is-size-3-touch">{{row_item.title}}</h2>
+          <div class="content">{{row_item.body}}</div>
+
+          {% if row_item.read_more_text %}
+
+            <div class="read_more_text">
+              <div class="read-more">READ MORE</div>
+              {{row_item.read_more_text}}
+              <div class="read-less">READ LESS</div>
+            </div>
+
+          {% endif %}
+
+           {% if row_item.cta_button %}
+           <div class="button-container">
+
+
+            <a href="{{row_item.cta_button['url']}}" class="cta_button button">
+
+              <p>{{row_item.cta_button['title']}}</p>
+
+            </a>
+
+           </div>
+            {% endif %}
+
+            
+          </div>
+
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>

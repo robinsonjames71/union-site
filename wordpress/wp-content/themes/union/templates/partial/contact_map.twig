@@ -1,0 +1,25 @@
+<div
+    class="contact_map {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+>
+    <div class="columns is-gapless">
+        <div class="column is-one-third is-hidden-mobile">
+            <img sizes="33vw"
+                 srcset="{{ TimberImage(row_item.image).src | resize(702, 1200) }} 2x"
+                 src="{{ TimberImage(row_item.image).src | resize(351, 600) }}"
+                 class="is-hidden-mobile"
+                 alt="{{row_item.image.alt}}">
+        </div>
+        <div class="column is-two-thirds" style="background-color:{{row_item.col_bg_colour}}">
+            <div class="section">
+                <div class="title">
+                    <p>{{row_item.col_title}}</p>
+                </div>
+                <p>{{row_item.col_text}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="acf-map">
+    <div class="marker" data-lat="{{row_item.map.lat}}" data-lng="{{row_item.map.ong}}"></div>
+</div> -->

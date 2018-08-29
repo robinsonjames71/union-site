@@ -1,0 +1,119 @@
+<section class="container-theme-{{ row_item.colour_theme }}" id="{{row_item.row_id}}">
+
+  {% include 'partial/background_image_text_overlay_on_right.twig' %}
+
+  <div class="split image-left-text-right">
+    <div class="columns is-gapless is-desktop">
+      <div class="column">
+        <div class="split-image-with-text">
+          <div
+            class="hero-background-image b-lazy"
+            data-src="{{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(800) }} | {{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(800) | retina(2) }}"
+          	data-src-small="{{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(376) }} | {{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(376) | retina(2) }}"
+          	data-src-medium="{{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(768) }} | {{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(768) | retina(2) }}"
+          	data-src-large="{{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(700) }} | {{ TimberImage(row_item.row1_image_left_text_right["image"]).src | resize(700) | retina(2) }}"
+          >
+          </div>
+          {% if row_item.row1_image_left_text_right["image_caption"] %}
+            <div class="split-image-with-text-text image-caption">{{ row_item.row1_image_left_text_right["image_caption"] }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="split-text">
+          <div class="section">
+            <h2 class="title is-size-2">{{ row_item.row1_image_left_text_right["title"] }}</h2>
+            <div class="content">{{ row_item.row1_image_left_text_right["body_text"] }}</div>
+
+            {% if row_item.row1_image_left_text_right["read_more_text"] %}
+
+              <div class="read_more_text">
+                <div class="read-more">READ MORE</div>
+                {{ row_item.row1_image_left_text_right["read_more_text"] }}
+                <div class="read-less">READ LESS</div>
+              </div>
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split text-left-image-right">
+    <div class="columns is-gapless is-desktop">
+      <div class="column">
+        <div class="split-image-with-text">
+          <div
+            class="hero-background-image b-lazy"
+            data-src="{{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(800) }} | {{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(800) | retina(2) }}"
+          	data-src-small="{{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(376) }} | {{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(376) | retina(2) }}"
+          	data-src-medium="{{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(768) }} | {{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(768) | retina(2) }}"
+          	data-src-large="{{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(700) }} | {{ TimberImage(row_item.row2_text_left_image_right["image"]).src | resize(700) | retina(2) }}"
+          >
+          </div>
+          {% if row_item.row2_text_left_image_right["image_caption"] %}
+            <div class="split-image-with-text-text image-caption">{{ row_item.row2_text_left_image_right["image_caption"] }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="split-text">
+          <div class="section">
+            <h2 class="title is-size-2">{{ row_item.row2_text_left_image_right["title"] }}</h2>
+            <div class="content">{{ row_item.row2_text_left_image_right["body_text"] }}</div>
+
+            {% if row_item.row2_text_left_image_right["read_more_text"] %}
+
+              <div class="read_more_text">
+                <div class="read-more">READ MORE</div>
+                {{ row_item.row2_text_left_image_right["read_more_text"] }}
+                <div class="read-less">READ LESS</div>
+              </div>
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split image-left-text-right">
+    <div class="columns is-gapless is-desktop">
+      <div class="column">
+        <div class="split-image-with-text">
+          <div
+            class="hero-background-image b-lazy"
+            data-src="{{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(800) }} | {{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(800) | retina(2) }}"
+          	data-src-small="{{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(376) }} | {{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(376) | retina(2) }}"
+          	data-src-medium="{{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(768) }} | {{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(768) | retina(2) }}"
+          	data-src-large="{{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(700) }} | {{ TimberImage(row_item.row3_image_left_text_right["image"]).src | resize(700) | retina(2) }}"
+          >
+          </div>
+          {% if row_item.row3_image_left_text_right["image_caption"] %}
+            <div class="split-image-with-text-text image-caption">{{ row_item.row3_image_left_text_right["image_caption"] }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="split-text">
+          <div class="section">
+            <h2 class="title is-size-2">{{ row_item.row3_image_left_text_right["title"] }}</h2>
+            <div class="content">{{ row_item.row3_image_left_text_right["body_text"] }}</div>
+
+            {% if row_item.row3_image_left_text_right["read_more_text"] %}
+
+              <div class="read_more_text">
+                <div class="read-more">READ MORE</div>
+                {{ row_item.row3_image_left_text_right["read_more_text"] }}
+                <div class="read-less">READ LESS</div>
+              </div>
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

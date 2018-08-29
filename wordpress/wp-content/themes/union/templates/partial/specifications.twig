@@ -1,0 +1,19 @@
+<section class="section is-medium" id="{{row_item.row_id}}">
+
+  <h1 class="title is-size-3 has-text-centered">Specifications</h1>
+
+  {# output table header e.g. 0-100kms in 2.4secs, 1000/kms/litre #}
+  <div class="specifications">
+    {% for specifications_item in row_item.specifications %}
+      <div class="specification">
+        <div class="specification-title">{{ specifications_item.title }}</div>
+        <div class="specification-description"><div class="specification-description-text">{{ specifications_item.description }}</div></div>
+      </div>
+
+    {% endfor %}
+  </div>
+
+	{% if row_item.pdf_link_text != "" %}
+    <p class="has-text-centered"><a href="{{ row_item.pdf_file.url }}" class="underline-link" target="_blank">{{ row_item.pdf_link_text }}</a></p>
+	{% endif %}
+</section>

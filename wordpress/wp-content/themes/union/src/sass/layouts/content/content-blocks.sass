@@ -1,0 +1,279 @@
+.content-container
+
+  +desktop
+    position: static
+
+    &:hover
+      .content-block-container
+        opacity: 0.3
+
+    .content-block-container
+      &:hover
+        opacity: 1
+
+.content-block-container
+  transition: opacity 0.4s ease-in-out
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+
+.content-block
+  height: 100%
+  min-height: 364px
+  // background-color: red
+  margin-left: 1em
+  position: relative
+
+  .title
+    .single-post &
+      padding-top: 1em
+
+.content-block__details
+  display: flex
+  align-items: center
+  z-index: 1
+  position: relative
+
+.content-block__details__caption, .content-block__details__location
+  flex-shrink: 0
+
+.content-block__details__divider
+  border-bottom: 1px solid white
+  width: 100%
+  min-width: 50px
+  margin-left: 1em
+  margin-right: 1em
+
+  .is-4 &
+    min-width: 15px
+
+  .content-block__details_1 &
+    border-bottom-color: #3F3F3F
+
+.content-block__details_1
+  font-size: 12px
+  text-transform: uppercase
+
+.content-block__details_2
+  font-size: 13px
+
+.embed-container
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  padding: 0
+
+  .single-post &
+    position: relative
+    height: auto
+    padding-bottom: 52%
+    margin-bottom: 2em
+
+
+.embed-container .footer-popup
+	width: 50%
+	margin: 0 auto
+
+.embed-container .footer-popup h2
+	font-weight: bold
+
+
+.content-block__details--side
+  max-width: 214px
+  transform-origin: left top
+  transform: translateX(-1em) rotate(90deg)
+
+.content-block--article
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+  &:before
+    content: ""
+    background-image: url(../img/quotes.svg)
+    background-repeat: no-repeat
+    width: 18px
+    height: 18px
+    position: absolute
+    left: 0
+
+  // .content-block__details_1
+  //   padding-left: 3em
+  //   position: relative
+
+  +desktop
+
+    // .content-block__details__caption,
+    // .content-block__details__divider,
+    // .content-block__details__location,
+    .content-block__details_2,
+    .content
+      opacity: 0
+      transition: opacity 0.4s ease-in-out
+
+      .single-post &
+        opacity: 1
+
+    .title
+      position: absolute
+      bottom: 0
+      transition: bottom 0.4s ease-in-out
+
+      .single-post &
+        position: relative
+
+  &:hover
+
+    // .content-block__details__caption,
+    // .content-block__details__divider,
+    // .content-block__details__location,
+    .content-block__details_2,
+    .content
+      opacity: 1
+
+    .title
+      bottom: 100%
+
+      &:before
+        border-top-color: white
+
+  .title
+
+    &:before
+      content: ""
+      position: absolute
+      top: -0.5em
+      width: 65px
+      border-top: 2px solid rgba(white, 0)
+      transition: border 0.4s ease-in-out
+
+      +touch
+        border-top-color: white
+
+
+
+.content-block--article__content-bottom
+  z-index: 1
+  position: relative
+
+
+
+.content-block--video, .content-block--podcast, .content-block--image
+  position: relative
+  cursor: pointer
+
+  // .content-block__details, .title, .content
+  //   pointer-events: none
+
+  .content-block--article__content-bottom
+    +desktop
+      // pointer-events: none
+      opacity: 0
+      transition: opacity 0.4s ease-in-out
+      padding: 1em
+      height: calc(100% - 2em)
+
+      .content-block__details_2
+        position: absolute
+        bottom: 1em
+
+  &:hover
+    .content-block--article__content-bottom
+      opacity: 1
+
+.content-block--podcast
+  .title
+    margin-bottom: 2.5rem
+    
+.podcast-clickable-area
+  position: absolute
+  left: 0
+  top: 50%
+  right: 0
+  bottom: 0
+
+.content-block--article__content-bottom__link
+  +desktop
+    position: absolute
+    left: 1em
+    right: 1em
+    top: 1em
+    bottom: 1em
+
+.content-block--video
+  cursor: auto
+
+  .content-block__details--side
+    +mobile
+      position: absolute
+
+.content-block--video__embed
+  position: relative
+
+  +desktop
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+
+  .single-post &
+    position: relative
+    width: 100%
+    height: auto
+
+  img
+    +touch
+      margin-bottom: 1em
+      display: block
+
+  .embed-container
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+
+.content-block--video__embed__link
+  +desktop
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+
+.content-block--video__embed__play
+  content: ""
+  position: absolute
+  bottom: 0
+  right: 0
+  z-index: 100
+  width: 50px
+  height: 50px
+  background-image: url(../img/content-play.svg)
+  background-position: center
+  background-repeat: no-repeat
+  cursor: pointer
+
+
+.content-block--image__image
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+
+  .single-post &
+    position: relative
+    padding-bottom: 50%
+    margin-bottom: 2em
+
+
+.content-block--podcast, .content-block--image
+  .content-block--article__content-bottom
+    height: auto
+    position: absolute
+    bottom: 1em
+    left: 1em

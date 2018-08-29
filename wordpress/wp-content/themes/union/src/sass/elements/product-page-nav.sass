@@ -1,0 +1,165 @@
+.product-page-nav
+  height: 64px
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 101
+  background-color: black
+  border-bottom: 1px solid #1F1F2A
+  +tablet
+    position: relative
+    top: auto
+    bottom: 0
+    padding: 0.8em 1.2em
+
+  .burger
+    width: 40px
+    height: 40px
+    position: relative
+    top: 0.8em
+    right: 1.2em
+    float: right
+    cursor: pointer
+    +tablet
+      display: none
+
+    span
+      width: 30px
+      height: 2px
+      position: absolute
+      left: 5px
+      background-color: #FFF
+      border-radius: 4px
+      &:nth-child(1)
+        top: 8px
+        transition: transform .3s linear, top .3s linear .3s
+      &:nth-child(2)
+        top: 19px
+        transition: opacity 0s linear .3s
+      &:nth-child(3)
+        top: 30px
+        transition: transform .3s linear, top .3s linear .3s
+
+  .mobile_menu
+    visibility: hidden
+    position: absolute
+    top: -5000px
+
+  .mobile_menu:checked ~ .container
+    height: 100vh
+    background: #000
+
+    .section-nav
+      display: flex
+    +tablet
+      height: auto
+
+  .mobile_menu:checked ~ .burger span
+    &:nth-child(1)
+      top: 19px
+      transition: top .3s linear, transform .3s linear .3s
+      transform: rotate(45deg)
+    &:nth-child(2)
+      top: 19px
+      transition: opacity 0s linear .3s
+      opacity: 0
+    &:nth-child(3)
+      top: 19px
+      transition: top .3s linear, transform .3s linear .3s
+      transform: rotate(-45deg)
+
+  .container
+    width: 100%
+    overflow: hidden
+    height: 0
+    background-color: #000
+    transition: height 0.4s
+    +tablet
+      top: auto
+      height: auto
+
+  &.product-page-nav-fixed
+    position: fixed
+
+  // &.ie-fix
+  //   bottom: auto !important
+
+.product-page-nav .site-header-container
+  left: 50%
+  transform: translate(-50%, -50%)
+  +tablet
+    left: 0
+    transform: none
+.product-page-nav .container
+  top: 22px
+  +tablet
+    top: auto
+
+.section-nav
+  display: none
+  justify-content: space-between
+  flex-direction: column
+  position: absolute
+  top: calc(50% - 64px)
+  left: 50%
+  transform: translate(-50%, -50%)
+  +tablet
+    display: flex
+    position: relative
+    top: auto
+    left: auto
+    transform: none
+    flex-direction: row
+
+  .button
+    font-size: 12px
+    width: 200px
+    margin: 0 auto
+    padding: 1.8em
+    &:last-child
+      margin-top: 20px
+      &:hover
+        color: #FFF
+        background-color: #0088c6 !important
+      +tablet
+        margin-top: 0
+    &:hover
+      color: #00adef
+    +tablet
+      width: auto
+      margin: 0
+      padding: 1.5em
+
+    &.is-info
+      font-size: 14px
+
+.site-header-container
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  position: absolute
+  top: calc(50% - 40px)
+  +tablet
+    left: 50%
+    transform: translate(-50%, -50%)
+    position: relative
+    top: auto
+    left: auto
+    transform: none
+    flex-direction: row
+
+  .button
+    font-size: 12px
+    width: 200px
+    margin: 0 auto
+    padding: 1.8em
+    &:hover
+      color: #00adef
+    +tablet
+      width: auto
+      margin: 0
+      padding: 1.5em
+
+    &.is-info
+      font-size: 14px

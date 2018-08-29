@@ -1,0 +1,68 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="sections-menu">
+		<a href="/" class="sections-menu-item">
+			<img src="{{ site.theme.link }}/img/arrow-left.svg"> <span class="sections-menu-item-label">Tough Conversations</span>
+		</a>
+		<a href="/x-class" class="sections-menu-item">
+			<span class="sections-menu-item-label">X-Class</span>
+			<img src="{{ site.theme.link }}/img/arrow-right.svg">
+		</a>
+	</div>
+
+	<br class="is-hidden-touch">
+	<br class="is-hidden-touch">
+	<br>
+	<br>
+
+	<section class="section">
+		<div class="container content-container">
+			<div class="columns is-multiline">
+
+					{% for content_page_post_item in post.get_field('content_page_posts') %}
+
+						{% if loop.index == 1 or loop.index == 4 %}
+							<div class="column is-4 content-block-container">
+						{% elseif loop.index == 2 or loop.index == 3 or loop.index % 6 == 0 or loop.index % 8 == 0 %}
+							<div class="column is-8 content-block-container">
+						{% elseif loop.index % 5 == 0 %}
+							<div class="column is-full content-block-container">
+						{% elseif loop.index % 7 == 0 and loop.index != 7 %}
+							<div class="column is-8 content-block-container">
+						{% elseif loop.index % 9 == 0 and loop.index != 9 %}
+							<div class="column is-8 content-block-container">
+						{% else %}
+							<div class="column is-4 content-block-container">
+						{% endif %}
+
+							<!-- {{ loop.index }} -->
+
+							{% for post_type_item in content_page_post_item.get_field('content_page_post_type') %}
+
+								{% if post_type_item.acf_fc_layout == "podcast" %}
+									{% include 'partial/content_page/podcast.twig' %}
+								{% elseif post_type_item.acf_fc_layout == "video" %}
+									{% include 'partial/content_page/video.twig' %}
+								{% elseif post_type_item.acf_fc_layout == "single_image" %}
+									{% include 'partial/content_page/single_image.twig' %}
+								{% elseif post_type_item.acf_fc_layout == "image_slider" %}
+									{% include 'partial/content_page/image_slider.twig' %}
+								{% elseif post_type_item.acf_fc_layout == "article" %}
+									{% include 'partial/content_page/article.twig' %}
+								{% endif %}
+
+							{% endfor %}
+
+						</div>
+
+					{% endfor %}
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+{% endblock %}

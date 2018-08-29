@@ -1,0 +1,25 @@
+<div
+    class="text_and_logos {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+>
+  <div class="columns is-gapless is-centered">
+    <div class="column is-half col1 has-text-centered-mobile has-text-left-tablet" style="background-color:{{row_item.col1_background_colour}};">
+      <div class="section">
+        <h2 class="title is-size-2 is-size-3-touch">{{row_item.title}}</h2>
+        <img src="{{ TimberImage(row_item.col1_image).src }}" srcset="{{ TimberImage(row_item.col1_image).src | retina(2) }} 2x" alt="{{ row_item.col1_image.alt }}">
+      </div>
+    </div>
+
+    <div class="column is-half col2" style="background-color:{{row_item.col2_background_colour}};">
+      <div class="section">
+        <div class="columns is-multiline is-mobile">
+          {% for single_logo in row_item.logos %}
+            <div class="logo column is-6 has-text-centered">
+              <img src="{{ TimberImage(single_logo.logo).src }}" srcset="{{ TimberImage(single_logo.logo).src | retina(2) }} 2x" alt="{{ single_logo.logo.alt }}">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+		</div>
+	</div>
+</div>

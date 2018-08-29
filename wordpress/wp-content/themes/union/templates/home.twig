@@ -1,0 +1,91 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<!-- <div class="sections-menu">
+		<a href="/journey" class="sections-menu-item">
+			<img src="{{ site.theme.link }}/img/arrow-left.svg"> <span class="sections-menu-item-label">The Journey</span>
+		</a>
+		<a href="/" class="sections-menu-item">
+			<span class="sections-menu-item-label">Tough Conversations</span>
+			<img src="{{ site.theme.link }}/img/arrow-right.svg">
+		</a>
+	</div> -->
+
+	{% for row_item in post.get_field('row') %}
+
+		{% if row_item.acf_fc_layout == 'menu' %}
+			{% include 'partial/menu.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'logo_hero' %}
+			{% include 'partial/hero_1.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'parallax_hero' %}
+			{% include 'partial/hero_2.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'static_hero' %}
+			{% include 'partial/hero_3.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'body_heading' %}
+			{% include 'partial/body_heading.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text' %}
+			{% include 'partial/two_column_text.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text_row' %}
+			{% include 'partial/two_column_text_row.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'video' %}
+			{% include 'partial/video.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img_txt_overlay' %}
+			{% include 'partial/img_txt_overlay.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos' %}
+			{% include 'partial/text_and_logos.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'contact_map' %}
+			{% include 'partial/contact_map.twig' %}
+
+
+
+
+
+		{% elseif row_item.acf_fc_layout == 'text_left_image_right' %}
+			{% include 'partial/text_left_image_right.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'background_image_text_overlay_on_right' %}
+			{% include 'partial/background_image_text_overlay_on_right.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'comparison_table' %}
+			{% include 'partial/comparison_table.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'specifications' %}
+			{% include 'partial/specifications.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text_row' %}
+			{% include 'partial/two_column_text_row.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'raw_html' %}
+			{% include 'partial/raw_html.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'large_image_with_3_rows_below' %}
+			{% include 'partial/large_image_with_3_rows_below.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'link_to_a_file' %}
+			{% include 'partial/link_to_a_file.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'features_hotspots' %}
+			{% include 'partial/features_hotspots.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'slider' %}
+			{% include 'partial/slider.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'slider_table' %}
+			{% include 'partial/slider_table.twig' %}
+
+		{% endif %}
+
+	{% endfor %}
+
+{% endblock %}

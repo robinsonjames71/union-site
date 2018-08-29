@@ -1,0 +1,22 @@
+<div
+    class="video {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+    style="background-color:{{row_item.background_colour}}"
+>
+    <div class="section">
+        <div class="columns">
+            <div class="column">
+                {% if row_item.video_play_btn %}
+                    <div class="video-play img">
+                        <img src="{{ TimberImage(row_item.video_play_btn).src }}" alt="Play Video">
+                    </div>
+                {% else %}
+                    <div class="video-play btn"></div>
+                {% endif %}
+            </div>
+            <video controls="true" poster="{{ TimberImage(row_item.video_placeholder).src }}">
+                <source src="{{ row_item.video_url}} " type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+<div class="slider-table-container" id="{{row_item.row_id}}">
+
+    <hr>
+
+    <div class="slider-table">
+
+        <div class="columns is-desktop">
+            <div class="column">
+
+                <h2 class="title is-size-2 is-size-3-touch has-text-centered">{{row_item.title}}</h2>
+
+                <!-- these should be the buttons that will be used on the bar to change the image of the car -->
+                <div class="container_table">
+
+                    <ul class="progressbar is-hidden-mobile">
+                        <li class="on"><span></span></li>
+                        <li class=""><span></span></li>
+                        <li class=""><span></span></li>
+                        <li class=""><span></span></li>
+                    </ul>
+
+                    <ul class="progress_text">
+                        <li class="on">
+                            <p class="table_category_title"><span>{{row_item.button_1.button_title}}</span></p>
+                            <span class="table_subtext">{{row_item.button_1.button_subtext}}</span>
+                        </li>
+                        <li>
+                            <p class="table_category_title"><span>{{row_item.button_2.button_title}}</span></p>
+                            <span class="table_subtext">{{row_item.button_2.button_subtext}}</span>
+                        </li>
+                        <li>
+                            <p class="table_category_title"><span>{{row_item.button_3.button_title}}</span></p>
+                            <span class="table_subtext">{{row_item.button_3.button_subtext}}</span>
+                        </li>
+                        <li>
+                            <p class="table_category_title"><span>{{row_item.button_4.button_title}}</span></p>
+                            <span class="table_subtext">{{row_item.button_4.button_subtext}}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- the images that are being changed within the code -->
+                <div class="image_box">
+
+                    <img class="image1 active" src="{{ TimberImage(row_item.button_1.image).src }}"/>
+
+                    <img class="image2" src="{{ TimberImage(row_item.button_2.image).src }}"/>
+
+                    <img class="image3" src="{{ TimberImage(row_item.button_3.image).src }}"/>
+
+                    <img class="image4" src="{{ TimberImage(row_item.button_4.image).src }}"/>
+
+                </div>
+
+                <div class="mobile_sub_text is-hidden-tablet">
+                    <h2 class="title is-size-2 is-size-3-touch has-text-centered active">{{row_item.button_1.button_subtext}}</h2>
+                    <h2 class="title is-size-2 is-size-3-touch has-text-centered">{{row_item.button_2.button_subtext}}</h2>
+                    <h2 class="title is-size-2 is-size-3-touch has-text-centered">{{row_item.button_3.button_subtext}}</h2>
+                    <h2 class="title is-size-2 is-size-3-touch has-text-centered">{{row_item.button_4.button_subtext}}</h2>
+                </div>
+
+                <!--  this is where the code for the table begins-->
+                <!-- <div class="tables">
+
+                    <table class ="stats1 active">
+                        <tr>
+                            <td> </td>
+                            <td>DIMENSIONS</td>
+                            <td>LOAD COMPARTMENT</td>
+                            <td>MISC</td>
+                        </tr>
+
+                        <tr>
+                            <td>MAX LENGTH</td>
+                            <td>7367mm</td>
+                            <td>4707MM</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>MAX WIDTH</td>
+                            <td>2345mm</td>
+                            <td>1787mm</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>MAX HEIGHT</td>
+                            <td>2831mm</td>
+                            <td>2243mm</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>WEIGHT</td>
+                            <td>-</td>
+                            <td>3175kg</td>
+                            <td>5500kg</td>
+                        </tr>
+
+                        <tr>
+                            <td>TOWING CAPACITY</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>2000/750kg</td>
+                        </tr>
+                    </table>
+
+                    <table class="stats2">
+                        <tr>
+                            <td> </td>
+                            <td>LENGTH</td>
+                            <td>HEIGHT</td>
+                            <td>PAY LOAD</td>
+                            <td>MAX LOAD VOLUME</td>
+                        </tr>
+                        <tr>
+                            <td>MID</td>
+                            <td>5932mm</td>
+                            <td>2360mm</td>
+                            <td>-</td>
+                            <td>12-</td>
+                        </tr>
+                    </table>
+
+                    <table class="stats3">
+                        <tr>
+                            <td> </td>
+                            <td>LENGTH</td>
+                            <td>HEIGHT</td>
+                            <td>PAY LOAD</td>
+                            <td>MAX LOAD VOLUME</td>
+                        </tr>
+                        <tr>
+                            <td>MID</td>
+                            <td>5932mm</td>
+                            <td>2360mm</td>
+                            <td>-</td>
+                            <td>12-</td>
+                        </tr>
+                        <tr>
+                            <td>MID 2</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+
+                    <table class="stats4 ">
+                        <tr>
+                            <td> </td>
+                            <td>LENGTH</td>
+                            <td>HEIGHT</td>
+                            <td>PAY LOAD</td>
+                            <td>MAX LOAD VOLUME</td>
+                        </tr>
+                        <tr>
+                            <td>MID</td>
+                            <td>5932mm</td>
+                            <td>2360mm</td>
+                            <td>-</td>
+                            <td>12-</td>
+                        </tr>
+                        <tr>
+                            <td>MID 2</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>MID 3</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</div>

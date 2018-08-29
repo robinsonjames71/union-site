@@ -1,0 +1,76 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<div class="site-wrap">
+			<!-- <div class="section nav-section">
+				<div class="container">
+					<div class="site-header">
+						<div class="site-header-container">
+							<header class="navbar is-transparent">
+								{% block header %}
+									<div class="logo">
+										<a href="https://www.mercedes-benz.com.au/content/australia/mpc/mpc_australia__website/en/home_mpc/van.html" target="_blank"><img src="{{ site.theme.link }}/img/img_logo.png" alt="Mercedes" width="205" height="118"></a>
+									</div>
+								{% endblock %}
+							</header>
+						</div>
+					</div>
+				</div>
+			</div> -->
+
+			<nav id="nav-main" class="nav-main nav-main--desktop" role="navigation">
+				<div class="nav-main-home">
+	                <a target="{{ item.target }}" href="{{ item.link }}">
+	                    <img class="is-hidden-tablet" src="{{ site.theme.link }}/img/union_wordmark.png" srcset="{{ site.theme.link }}/img/union_wordmark@2x.png 2x" alt="Union">
+	                    <img class="is-hidden-mobile" src="{{ site.theme.link }}/img/union_logo_white_black.png" srcset="{{ site.theme.link }}/img/union_logo_white_black@2x.png 2x" alt="Union">
+	                    <img class="is-hidden-mobile over" src="{{ site.theme.link }}/img/union_logo_red_white.png" srcset="{{ site.theme.link }}/img/union_logo_red_white@2x.png 2x" alt="Union">
+	                </a>
+                </div>
+				<input type="checkbox" name="nav-main-menu--dropdown" id="nav-main-menu--dropdown">
+				<label class="nav-main-menu" for="nav-main-menu--dropdown">menu <div class="circle"></div></label>
+
+				{% include "menu.twig" with {'menu': menu_main.get_items} %}
+			</nav>
+			<div class="nav-main-placeholder is-hidden-tablet"></div>
+
+			<main class="body-content">
+
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+
+			</main>
+
+			{% block footer %}
+				<footer id="footer">
+					<div class="section">
+						<nav id="site-footer" class="site-footer" role="navigation">
+							<div class="columns is-gapless">
+								<div class="column is-half has-text-centered-mobile has-text-left-tablet">
+									{% include "menu.twig" with {'menu': menu_footer.get_items} %}
+								</div>
+								<div class="column is-half has-text-centered-mobile has-text-right-tablet">
+									<p>132 Cremorne St, <br> Cremorne, VIC, 3121</p>
+									<p>+1 601 978 2212 <br><a href="mailto:hello@union.com">hello@union.com</a></p>
+								</div>
+							</div>
+							<div class="columns is-gapless">
+								<div class="column is-half has-text-centered-mobile has-text-left-tablet"><img src="{{ site.theme.link }}/img/union_wordmark_white.png" srcset="{{ site.theme.link }}/img/union_wordmark_white@2x.png 2x" alt="Union"></div>
+								<div class="column is-half has-text-centered-mobile has-text-right-tablet">
+									<p class="copyright">© Copyright 2018, UNION</p>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</footer>
+				{{ function('wp_footer') }}
+			{% endblock %}
+		</div>
+	</body>
+</html>

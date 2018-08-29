@@ -1,0 +1,15 @@
+<div class="product-page-nav pace-loadin" id="product-page-nav">
+    <input type="checkbox" id="mobile_menu" class="mobile_menu">
+    <label class="burger" for="mobile_menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+	<div class="container">
+		<div class="section-nav">
+			{% for menu_item in row_item.menu_items %}
+				<a href="{{ menu_item.link["url"] }}" {{ (menu_item.link["target"] != "" ? "target='" ~ menu_item.link["target"] ~ "'" : "") }} class="button is-black {{ menu_item.css_class }}" style="background-color:{{ menu_item.background_colour }};">{{ menu_item.link["title"] }}</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+.img_txt_overlay
+    .section
+        position: relative
+
+    img
+        position: relative
+        width: calc(100% + 40px)
+        left: -20px
+        max-width: none
+        +tablet
+            width: auto
+            left: 0
+            max-width: 100%
+    .col2
+        +tablet
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            z-index: 2

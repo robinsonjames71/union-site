@@ -1,0 +1,21 @@
+<div
+	class="heros hero2 {{row_item.menu_colour}}-menu"
+	id="{{row_item.row_id}}"
+>
+
+	<img src="{{ TimberImage(row_item.image).src }}" alt="Union">
+
+	<div class="image-parallax">
+		<img src="{{ TimberImage(row_item.image_parallax).src }}" alt="{{ row_item.image_parallax.alt }}">
+	</div>
+
+	<div class="hero-text">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-4-desktop has-text-centered">
+					<h1>{{row_item.text_parallax}}</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

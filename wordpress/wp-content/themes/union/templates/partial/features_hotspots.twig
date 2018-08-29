@@ -1,0 +1,76 @@
+
+<section class="section" id="{{row_item.row_id}}">
+
+  <h2 class="title is-size-2 is-size-3-touch has-text-centered">{{ row_item.title }}</h2>
+  <p class="has-text-centered">{{ row_item.sub_title }}</p>
+
+  <div id="hotspots" class="hotspots-container">
+
+    <div class="container">
+
+      <div class="hotspots">
+        <div class="hotspots-image">
+          <img src="{{ site.theme.link }}/img/imagemap-ute-transparent.png">
+          <div class="hotspot hotspot-canopy" :class="{ active: detailActive == 1 }" @mouseenter="showDetail(1)" @click="showDetail(1)"></div>
+          <div class="hotspot hotspot-stylingbar" :class="{ active: detailActive == 2 }" @mouseenter="showDetail(2)" @click="showDetail(2)"></div>
+          <div class="hotspot hotspot-towbar" :class="{ active: detailActive == 3 }" @mouseenter="showDetail(3)" @click="showDetail(3)"></div>
+          <div class="hotspot hotspot-garminmappilot" :class="{ active: detailActive == 4 }" @mouseenter="showDetail(4)" @click="showDetail(4)"></div>
+          <!--<div class="hotspot hotspot-roofracks" :class="{ active: detailActive == 5 }" @mouseenter="showDetail(5)" @click="showDetail(5)"></div>-->
+          <!-- <div class="hotspot hotspot-sidestep" :class="{ active: detailActive == 5 }" @mouseenter="showDetail(6)" @click="showDetail(6)"></div> -->
+          <!-- <div class="hotspot hotspot-cabrails" :class="{ active: detailActive == 7 }" @mouseenter="showDetail(7)" @click="showDetail(7)"></div> -->
+        </div>
+
+      </div>
+
+      <div class="hotspot-details" v-cloak>
+
+        <transition name="fade" mode="out-in">
+
+          <div class="hotspot-detail" v-if="detailActive === 1" key="1">
+            <h1 class="features-table-item-title">{{ row_item.canopy_title }}</h1>
+            <p>{{ row_item.canopy_description }}</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 2" key="2">
+            <h1 class="features-table-item-title">{{ row_item.styling_bar_title }}</h1>
+            <p>{{ row_item.styling_bar_description }}</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 3" key="3">
+            <h1 class="features-table-item-title">{{ row_item.tow_bar_title }}</h1>
+            <p>{{ row_item.tow_bar_description }}</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 4" key="4">
+            <h1 class="features-table-item-title">{{ row_item.garmin_mappilot_title }}</h1>
+            <p>{{ row_item.garmin_mappilot_description }}</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 5" key="5">
+            <h1 class="features-table-item-title">{{ row_item.roof_racks_title }}</h1>
+            <p>{{ row_item.roof_racks_description }}</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 6" key="6">
+            <h1 class="features-table-item-title">{{ row_item.side_step_title }}</h1>
+            <p>{{ row_item.side_step_description }}</p>
+          </div>
+
+          <div class="hotspot-detail" v-else-if="detailActive === 7" key="7">
+            <h1 class="features-table-item-title">{{ row_item.cabrails_title }}</h1>
+            <p>{{ row_item.cabrails_description }}</p>
+          </div>
+
+        </transition>
+
+      </div>
+
+    </div>
+
+  </div>
+
+	{% if row_item.bottom_link_text != "" %}
+ 		<p class="has-text-centered"><a href="{{ row_item.bottom_link_file["url"] }}" class="underline-link" target="_blank">{{ row_item.bottom_link_text }}</a></p>
+  	{% endif %}
+
+</section>

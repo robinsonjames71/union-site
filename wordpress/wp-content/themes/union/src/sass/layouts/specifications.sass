@@ -1,0 +1,74 @@
+.specifications
+  max-width: 680px
+  margin: 4em auto
+
+  text-align: center
+
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+.specification
+  width: 50%
+  margin-top: 1em
+  margin-bottom: 1em
+
+  +desktop
+    position: relative
+    width: 33.3333%
+
+    &:after
+      content: ""
+      position: absolute
+      left: calc(50% + 43px)
+      top: 50%
+      transform: translateY(8px)
+      border-bottom: 1px solid #1F1F2A
+      width: 65%
+
+    &:nth-child(3n)
+      &:after
+        display: none
+
+
+.specification-title
+  font-size: 12px
+  font-family: "DaimlerCS-Demi", "Arial", sans-serif
+  text-transform: uppercase
+  letter-spacing: 1px
+
+.specification-description
+  position: relative
+  margin: 2em auto
+  width: 86px
+  height: 86px
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: black
+  border: 1px solid #1F1F2A
+  border-radius: 50%
+  font-size: 14px
+
+  .specification-description-text
+    transition: transform 0.4s ease
+
+  &:after
+    content: ""
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    border: 1px solid $cyan
+    margin: 6px
+    border-radius: 50%
+    opacity: 0
+    transition: opacity 0.4s ease
+
+  &:hover
+    .specification-description-text
+      transform: scale(1.15)
+
+    &:after
+      opacity: 1

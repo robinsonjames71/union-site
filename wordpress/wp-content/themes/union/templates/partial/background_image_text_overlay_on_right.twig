@@ -1,0 +1,36 @@
+
+<div class="background-image-and-text-over b-lazy" data-src="{{ site.theme.link }}/img/bigutegradient.jpg" id="{{row_item.row_id}}">
+
+  <div class="big-ute-image b-lazy" data-src="{{ site.theme.link }}/img/bigute.jpg"></div>
+
+  <div class="section">
+
+    <div class="container">
+
+      <div class="background-image-and-text-over-details">
+
+        <h2 class="title is-size-1 is-size-2-touch is-white">{{row_item.title}}</h2>
+
+        <div class="content">{{row_item.body_text}}</div>
+
+        {% if row_item.image_caption %}
+          <div class="image-caption">{{row_item.image_caption}}</div>
+        {% endif %}
+
+        {% if row_item.read_more_text %}
+
+          <div class="read_more_text">
+            <div class="read-more">READ MORE</div>
+            {{row_item.read_more_text}}
+            <div class="read-less">READ LESS</div>
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

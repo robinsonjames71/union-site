@@ -1,0 +1,130 @@
+.home-section
+  position: relative
+  padding-top: 0
+  padding-bottom: 0
+
+  +desktop
+    background-size: contain
+
+  h1.title
+    margin-bottom: 0
+
+  .title
+    opacity: 0
+    transition: opacity 0.5s ease-in-out
+
+  .content-home
+    opacity: 0
+    transition: opacity 0.5s 1s ease-in-out
+
+  .doco-button
+    opacity: 0
+    transition: opacity 0.5s 3s ease-in-out
+
+  &.fp-completely
+    .pace-done &
+      .title, .content-home, .home-section-image, .doco-button
+        opacity: 1!important
+        transform: scale(1)!important
+
+.home-section-image
+  background-repeat: no-repeat
+  background-size: contain
+  background-position: center
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  opacity: 0!important
+  transform: scale(0.97)!important
+  transition: opacity 1.5s 1.5s ease-in-out, transform 1.5s 1.5s ease-in-out
+
+  +touch
+    left: -1.5em
+    right: -1.5em
+    background-size: cover
+
+.home-section-content
+  margin-top: -80px
+  z-index: 1
+
+.content-home
+  max-width: 400px
+  margin: auto
+
+  +until(321)
+    font-size: 0.8rem
+
+  .has-text-centered-touch &
+    +widescreen
+      margin-left: 0
+
+.home-scroll-down
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  bottom: 3em
+  cursor: pointer
+  z-index: 1000
+  opacity: 0
+  transition: opacity 0.8s 0.5s ease-in-out
+
+  .pace-done &
+    opacity: 1
+
+    img
+      animation: scrollDown 5s 2s infinite ease-in-out
+
+  p
+    font-size: 16px
+    margin-bottom: 0.5em
+    transition: opacity 0.8s 1.5s ease-in-out
+    opacity: 0
+
+    .pace-done &
+      opacity: 1
+
+.fp-scrollable
+  width: 100%
+
+.has-text-underlined
+  text-decoration: underline
+
+.underliner
+  position: relative
+  white-space: nowrap
+  line-height: 1
+  display: inline-block
+
+  &:after
+    content: ""
+    position: absolute
+    left: 0
+    right: 100%
+    bottom: 0.01em
+    border-bottom: 2px solid white
+    padding-bottom: 0
+    transition: right 1.5s 3.5s ease-in-out
+
+  .fp-completely &
+    &:after
+      right: 0%
+
+.home-mobile-spacer
+  +touch
+    height: 10em
+
+@keyframes scrollDown
+  0%
+    transform: translateY(0px)
+    opacity: 1
+  10%
+    transform: translateY(10px)
+    opacity: 1
+  20%
+    transform: translateY(0px)
+  60%
+    opacity: 0.5
+  100%
+    opacity: 1

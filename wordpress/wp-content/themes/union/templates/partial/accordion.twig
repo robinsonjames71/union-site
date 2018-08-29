@@ -1,0 +1,44 @@
+
+<div class="section accordion" style="background-color:{{row_item.background_colour}};" id="{{row_item.row_id}}">
+  <div class="columns is-gapless is-centered">
+    <div class="column is-6">
+      <h2 class="title is-size-2 is-size-3-touch has-text-centered">{{row_item.title}}</h2>
+
+      {% if row_item.accordion_items|length > 0 %}
+        <div class="accordion_container">
+        {% for menu_item in row_item.accordion_items %}
+          {% if loop.index <= 10 %}
+          <div class="accordion_item">
+            <div class="ai_title">
+              <h3 class="is-size-5 is-uppercase has-text-weight-bold">{{ menu_item.item_title }}</h3>
+              <div class="icon"><span></span><span></span></div>
+            </div>
+    			  <p>{{ menu_item.item_description }}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if row_item.accordion_items|length > 10 %}
+        <div class="accordion_container extended">
+        {% for menu_item in row_item.accordion_items %}
+          {% if loop.index > 10 %}
+          <div class="accordion_item">
+            <div class="ai_title">
+              <h3 class="is-size-5 is-uppercase has-text-weight-bold">{{ menu_item.item_title }}</h3>
+              <div class="icon"><span></span><span></span></div>
+            </div>
+            <p>{{ menu_item.item_description }}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if row_item.pdf_link_text != "" and row_item.accordion_items|length > 10 %}
+        <p class="has-text-centered accordion_link"><a href="" class="underline-link" target="_blank">{{ row_item.pdf_link_text }}</a></p>
+      {% endif %}
+		</div>
+	</div>
+</div>

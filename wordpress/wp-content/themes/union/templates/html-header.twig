@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{ site.language_attributes }}> <!--<![endif]-->
+<head>
+    <meta charset="{{ site.charset }}" />
+        <title>
+            {% if wp_title %}
+                {{ wp_title }} - {{ site.name }}
+            {% else %}
+                {{ site.name }}
+            {% endif %}
+        </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.theme.link }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="{{ site.theme.link }}/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ site.theme.link }}/favicon-32x32.png" sizes="32x32">
+    <link rel="manifest" href="{{ site.theme.link }}/manifest.json">
+    <link rel="mask-icon" href="{{ site.theme.link }}/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="{{ site.theme.link }}/favicon.ico">
+    <link type="application/rss+xml" rel="alternate" title=“Tough Conversations" href="https://rss.whooshkaa.com/rss/podcast/id/2802”/>
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{{ site.theme.link }}/mstile-144x144.png">
+    <meta name="msapplication-config" content="{{ site.theme.link }}/browserconfig.xml">
+    <meta name="description" content="{{ site.description }}">
+    <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="author" href="{{ site.theme.link }}/humans.txt" />
+    <link rel="pingback" href="{{ site.pingback_url }}" />
+    <!-- <script type="text/javascript">
+        paceOptions = {
+
+            // Only show the progress on regular and ajax-y page navigation,
+            // not every request
+            ajax: false
+            // restartOnPushState: false,
+            // restartOnRequestAfter: false
+        }
+    </script> -->
+    {{function('wp_head')}}

@@ -1,0 +1,204 @@
+.slider-table-container
+  background-image: linear-gradient(to top, hsl(0,0%,100%) 0%, hsl(0,0%,99.27%) 3.73%, hsl(0,0%,97.19%) 6.59%, hsl(0,0%,93.91%) 8.92%, hsl(0,0%,89.54%) 11.08%, hsl(0,0%,84.17%) 13.41%, hsl(0,0%,77.87%) 16.27%, hsl(0,0%,70.71%) 20%,    hsl(0,0%,62.74%) 24.96%, hsl(0,0%,53.99%) 31.49%, hsl(0,0%,44.53%) 39.94%, hsl(0,0%,34.36%) 45.67%, hsl(0,0%,23.54%) 55.02%, hsl(0,0%,12.07%) 65.35%, hsl(0,0%,0%) 100%)
+
+.slider-table
+    position: relative
+    margin: 0 auto
+    padding: 4em 1em
+    max-width: 1024px
+    +tablet
+        padding: 4em 2em
+
+// refers to the box around the images
+.image_box
+    position: relative
+    overflow: hidden
+
+
+// image sizing
+.image1, .image2, .image3, .image4
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    transition: opacity .4s
+
+
+// position for image
+.active
+    position: relative
+    opacity: 1
+    top: 0
+
+.mobile_sub_text h2
+    display: none
+    margin-top: 20px
+    color: #000
+    height: 56px
+    margin-bottom: 20px
+    &.active
+        display: block
+
+
+// space the buttons and line exists within
+.container_table
+    margin-top: 3rem
+    position: relative
+    z-index: 2
+    height: 100px
+    +tablet
+        height: 170px
+        margin-top: auto
+
+
+.progressbar
+    height: 60px
+    overflow: hidden
+
+
+// alignment of buttons on page
+.progressbar li,
+.progress_text li
+    list-style-type: none
+    float: left
+    width: 25%
+    position: relative
+    text-align: center
+    cursor: pointer
+
+
+//  this is the code to change the colour of the main button titles
+.progress_text li
+    color: darkgrey
+
+
+.progress_text li.on
+    color: white
+
+
+.progress_text small
+    opacity: 0
+
+.progress_text .on small
+    opacity: 1
+
+// the actual buttons when not active
+.progressbar li span
+    display: block
+    width: 5px
+    height: 5px
+    position: relative
+    margin: 15px auto 10px
+    text-align: center
+    border-radius: 50%
+
+
+// the line connecting the buttons
+.progressbar li:not(:first-child)::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 6px
+    background-color:#00ADEF
+    top: 15px
+    right: 50%
+    z-index: -1
+
+.progressbar li:last-child::before
+    right: 50%
+
+
+// this line of code helps cut the blue progress line off on the left
+
+// the code SHOULD make the active buttons size increase
+.progressbar li.on span
+    width: 34px
+    height: 34px
+    margin-top: 1px
+    border: 5px solid #00ADEF
+    background-color: black
+
+
+.progressbar li.on ~ li:before
+    background-color: gray
+    z-index: -2
+
+
+// this is where the table styleing starts from
+.tables
+    position: relative
+
+.table_category_title
+    font-size: 14px
+    font-weight: bold
+    color: #818181
+    padding-bottom: 8px
+    font-family: "DaimlerCS-Demi", "Arial", sans-serif
+    +tablet
+        font-size: 24px
+        font-weight: normal
+        font-family: "DaimlerCAC-Regular", "Arial", sans-serif;
+
+.on .table_category_title span
+    display: inline-block
+    padding-bottom: 12px
+    border-bottom: 2px solid #00ADEF
+    +tablet
+        padding-bottom: 0
+        border-bottom: 0
+
+.table_subtext
+    display: none
+    font-size: 14px
+    text-align: center
+    font-weight: 400
+
+.on .table_subtext
+    +tablet
+        display: block
+
+.image_box
+
+
+table
+    position: absolute
+    top: 0
+    width: 100%
+    border-collapse: collapse
+    transition: opacity .4s
+    opacity: 0
+    color: lightgrey
+
+    tr:first-child td
+        border-bottom: 2px solid #000
+        padding-left: 20px
+        padding-bottom: 26px
+        font-weight: bold !important
+
+    tr:first-child td:first-child
+        border-right: 0
+
+    td
+        width: 21.25%
+        padding-top: 22px
+        padding-left: 20px
+        padding-bottom: 22px
+        color: #000
+
+    tr:nth-child(2) td
+        padding-top: 40px
+
+    table tr td:nth-child(2)
+        padding-left: 100px
+
+    td:first-child
+        width: 15%
+        font-weight: bold
+        border-right: 2px solid #000
+
+#active
+    position: relative
+    opacity: 1
+
+.on .table_category_title
+    color: #FFFFFF

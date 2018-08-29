@@ -1,0 +1,70 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	{% for row_item in post.get_field('row') %}
+
+		{% if row_item.acf_fc_layout == 'menu' %}
+			{% include 'partial/menu.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'logo_hero' %}
+			{% include 'partial/hero_1.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'parallax_hero' %}
+			{% include 'partial/hero_2.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'static_hero' %}
+			{% include 'partial/hero_3.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'body_heading' %}
+			{% include 'partial/body_heading.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text' %}
+			{% include 'partial/two_column_text.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text_row_test' %}
+			{% include 'partial/two_column_text_row.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'video' %}
+			{% include 'partial/video.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img_txt_overlay' %}
+			{% include 'partial/img_txt_overlay.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos' %}
+			{% include 'partial/text_and_logos.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'contact_map' %}
+			{% include 'partial/contact_map.twig' %}
+
+
+
+		{% elseif row_item.acf_fc_layout == 'image_left_text_right' %}
+			{% include 'partial/image_left_text_right.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_left_image_right' %}
+			{% include 'partial/text_left_image_right.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'background_image_text_overlay_on_right' %}
+			{% include 'partial/background_image_text_overlay_on_right.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'comparison_table' %}
+			{% include 'partial/comparison_table.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'specifications' %}
+			{% include 'partial/specifications.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'features' %}
+			{% include 'partial/features.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'raw_html' %}
+			{% include 'partial/raw_html.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'large_image_with_3_rows_below' %}
+			{% include 'partial/large_image_with_3_rows_below.twig' %}
+
+		{% endif %}
+
+	{% endfor %}
+
+{% endblock %}
