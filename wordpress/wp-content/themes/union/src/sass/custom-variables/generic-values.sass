@@ -59,14 +59,14 @@ body
 
 // Inline
 h1, h2, h3, h4
-  font-family: $font-bold
+  font-family: $font-extrabold
   font-weight: normal
   font-style: normal
   line-height: 1.2
 
 h1
   color: $white
-  font-size: 2.5rem
+  font-size: 3.75rem
   +tablet
     font-size: 8.75rem
 
@@ -83,7 +83,7 @@ h3
 h4
   font-size: 1.375rem
   +tablet
-    font-size: 1.5rem
+    font-size: 1.8rem
 
 h5
   font-family: $font-light
@@ -93,20 +93,25 @@ h5
 
 p
   font-family: $font-light
-  line-height: 1.75
+  line-height: 1.5
+
+p + p
+  margin-top: 1rem
 
 main p a
   position: relative
-  padding-left: 15px
+  // padding-left: 15px
   color: $red
+  &:hover
+    color: rgba($red, 0.6)
+    &::before
+      background-color: rgba($red, 0.6)
   &::before
     content: ''
-    display: block
+    display: inline-block
     width: 8px
     height: 8px
-    position: absolute
-    top: 3px
-    left: 0
+    margin-right: 6px
     border-radius: 100px
     background-color: $red
 
@@ -117,8 +122,6 @@ a
   text-decoration: none
   strong
     color: currentColor
-  &:hover
-    color: $link-hover
 
   .title &
     font-family: inherit

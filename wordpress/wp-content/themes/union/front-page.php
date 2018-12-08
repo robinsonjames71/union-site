@@ -25,4 +25,5 @@ error_reporting(E_ALL); ini_set('display_errors', '1');
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
+$context['is_front_page'] = 'true';
 Timber::render(array('home.twig', 'page.twig'), $context);

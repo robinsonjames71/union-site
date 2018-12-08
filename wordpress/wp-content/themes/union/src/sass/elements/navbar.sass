@@ -1,5 +1,21 @@
-.nav-main-placeholder
+.nav-main-placeholder:nth-child(2)
   height: 51px
+
+.sticky-wrapper
+  position: relative
+  z-index: 15
+
+  .nav-main
+    +tablet
+      position: absolute
+      background-color: transparent
+      top: 15px
+      padding-top: 0
+      padding-bottom: 0
+      overflow: visible
+
+      &.stuck
+        position: fixed
 
 .nav-main
   position: fixed
@@ -10,7 +26,11 @@
   padding: 15px 20px
   z-index: 10
   +tablet
-    background-color: transparent
+    padding: 0
+    height: 0
+    top: 15px
+    margin-left: 66px
+    width: calc(100% - 132px)
 
   .nav-main-home
     position: relative
@@ -21,24 +41,24 @@
       opacity: 0
       transition: opacity 0.2s
       z-index: 2
+  +tablet
+    &.dark-menu
+      .nav-main-home .over
+        opacity: 1
+      .nav-main-menu
+        color: $red
+      .circle
+        background-color: $red
 
-  &.dark-menu
-    .nav-main-home .over
-      opacity: 1
-    .nav-main-menu
-      color: $red
-    .circle
-      background-color: $red
+    &.dark-right-menu
+      .nav-main-menu
+        color: $red
+      .circle
+        background-color: $red
 
-  &.dark-right-menu
-    .nav-main-menu
-      color: $red
-    .circle
-      background-color: $red
-
-  &.dark-left-menu
-    .nav-main-home .over
-      opacity: 1
+    &.dark-left-menu
+      .nav-main-home .over
+        opacity: 1
 
   .nav-main-menu
     position: relative
@@ -46,7 +66,7 @@
     padding-top: 2px
     padding-right: 15px
     cursor: pointer
-    color: $black
+    color: $red
     +tablet
       padding-top: 44px
       color: $white
@@ -58,7 +78,7 @@
     display: block
     width: 8px
     height: 8px
-    background-color: $black
+    background-color: $red
     border-radius: 100px
     +tablet
       top: 53px
@@ -68,9 +88,81 @@
     text-indent: -9999px
     opacity: 0
 
-  ul
-    display: none
+  .nav-menu-list
+    width: 100vw
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 100vw
+    overflow: hidden
+    z-index: 11
+    background-color: #fff
+    transition: left 0.3s
 
+    @at-root body.home & li.home
+      list-style-type: disc
+      color: $red
+      a
+        color: $red
+
+    @at-root body.about & li.about
+      list-style-type: disc
+      color: $red
+      a
+        color: $red
+
+    @at-root body.services & li.services
+      list-style-type: disc
+      color: $red
+      a
+        color: $red
+
+    @at-root body.contact & li.contact
+      list-style-type: disc
+      color: $red
+      a
+        color: $red
+
+    li
+      font-family: $font-extrabold
+      font-size: 4rem
+      &:hover
+        a
+          color: $red
+
+  #nav-main-menu--dropdown:checked ~ .nav-menu-list
+    left: 0
+
+  ul
+    display: flex
+    flex-direction: column
+    justify-content: center
+    height: 100%
+    a
+      color: $black
+      transition: color 0.2s
+
+.nav-menu-close
+  position: absolute
+  top: 50px
+  right: 50px
+  width: 40px
+  height: 40px
+  border-radius: 100px
+  background-color: #F8473A
+  cursor: pointer
+  span
+    position: absolute
+    top: 50%
+    left: 10px
+    width: 20px
+    height: 2px
+    border-radius: 5px
+    background-color: #fff
+    transform: rotate(45deg)
+
+    &:last-child
+      transform: rotate(-45deg)
 
 .navbar
   &.is-transparent

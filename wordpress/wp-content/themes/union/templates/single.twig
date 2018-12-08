@@ -2,129 +2,110 @@
 
 {% block content %}
 
-	<div class="sections-menu">
-		<a href="/journey" class="sections-menu-item">
-			<img src="{{ site.theme.link }}/img/arrow-left.svg">
-			<span class="sections-menu-item-label">Explore The Journey </span>
-		</a>
-		<a href="/x-class" class="sections-menu-item">
-			<!-- <span class="sections-menu-item-label">The X-Class</span>
-			<img src="{{ site.theme.link }}/img/arrow-right.svg"> -->
-		</a>
+	{% for row_item in post.get_field('row') %}
 
-	</div>
+		{% if row_item.acf_fc_layout == 'menu' %}
+			{% include 'partial/menu.twig' %}
 
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="section">
-		<div class="container">
-			<div class="columns">
-				<div class="column is-8 is-offset-2">
-					<div class="content-block">
-						{% for content_page_post_type in post.get_field('content_page_post_type') %}
+		{% endif %}
 
-							{% if content_page_post_type.images %}
-								<div class="slick">
-									{% for image in content_page_post_type.images %}
-										<img data-lazy="{{ TimberImage(image).src | resize(872, 465, 'center') | retina(2) }}"/>
-									{% endfor %}
-								</div>
-							{% endif %}
+	{% endfor %}
 
-							{% if content_page_post_type.image %}
-								<div class="content-block--image__image b-lazy" data-src="{{ TimberImage(content_page_post_type.image).src | resize(872, 465, 'center') | retina(2) }}"></div>
-							{% endif %}
+	<div
+		class="heros hero3 red-menu"
+	>
 
-							{% if content_page_post_type.url %}
-								<div class="embed-container"><iframe class="b-lazy" data-src="{{ content_page_post_type.url }}"></iframe></div>
-							{% endif %}
+		<img sizes="100vw"
+			 src="{{ TimberImage(post.thumbnail).src }}"
+			 srcset="{{ TimberImage(post.thumbnail).src | retina(2) }} 2x, {{ TimberImage(post.thumbnail).src | resize(1000) }} 1000w, {{ TimberImage(post.thumbnail).src | resize(500) }} 500w" alt="{{ TimberImage(post.thumbnail).alt }}">
 
-							<div class="content-block--article__content-bottom">
-
-								{% if content_page_post_type.embed_link %}
-
-									<div class="content-block--video__embed">
-
-										<div class="embed-container">{{ function('oEmbedAddParams',content_page_post_type.embed_link, {'autoplay':'1'}) }}</div>
-
-									</div>
-
-									<br>
-									<br>
-
-								{% endif %}
-
-								<div class="content-block__details content-block__details_1">
-									<div class="content-block__details__caption">
-										{{ post.post_caption }}
-									</div>
-									<div class="content-block__details__divider"></div>
-									<div class="content-block__details__location">
-										{{ post.post_location }}
-									</div>
-								</div>
-
-								{% if content_page_post_type.url %}
-									<div class="content has-text-centered">
-										<br>
-										<p><strong>OTHER WAYS TO LISTEN:</strong></p>
-										{% if options.podcast_apple %}
-											<a href="{{ options.podcast_apple }}" target="_blank" style="display: inline-block;">
-												<img src="{{ site.theme.link }}/img/podcasticons/itunes_keyline.svg" width="70">
-											</a>
-										{% endif %}
-										{% if options.podcast_android %}
-											<a href="{{ options.podcast_android }}" target="_blank" style="display: inline-block;">
-												<img src="{{ site.theme.link }}/img/podcasticons/android_keyline.svg" width="70">
-											</a>
-										{% endif %}
-										{% if options.podcast_rss %}
-											<a href="{{ options.podcast_rss }}" target="_blank" style="display: inline-block;">
-												<img src="{{ site.theme.link }}/img/podcasticons/rss_keyline.svg" width="70">
-											</a>
-										{% endif %}
-										{% if options.podcast_spotify %}
-											<a href="{{ options.podcast_spotify }}" target="_blank" style="display: inline-block;">
-												<img src="{{ site.theme.link }}/img/podcasticons/spotify_keyline.svg" width="70">
-											</a>
-										{% endif %}
-									</div>
-									<hr style="background-color: #3F3F3F; margin-left: 3em; margin-right: 3em;">
-								{% endif %}
-
-								<h2 class="title is-size-2 is-size-3-tablet is-size-2-desktop">{{ (content_page_post_type.title ? content_page_post_type.title : post.title) }}</h2>
-
-								<div class="content">
-									<p>{{ content_page_post_type.article_content }}</p>
-								</div>
-
-								<div class="content-block__details content-block__details_2">
-									<div class="content-block__details__caption">
-										{% for term in post.terms %}
-											{% if loop.last %}
-												{{ term.name }}
-											{% else %}
-												{{ term.name }} /
-											{% endif %}
-										{% endfor %}
-									</div>
-									<div class="content-block__details__divider"></div>
-									<div class="content-block__details__location">
-										{{ content_page_post_type.read_time }}
-									</div>
-									<a href="https://www.facebook.com/sharer/sharer.php?u={{ post.link | e('url') }}" target="_blank" class="share-link"></a>
-								</div>
-
-							</div>
-
-						{% endfor %}
+		<div class="hero-text">
+			<div class="container">
+				<div class="columns is-centered is-mobile">
+					<div class="column has-text-centered">
+						<h1>{{post.title}}</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	{% for row_item in post.get_field('row') %}
+
+		{% if row_item.acf_fc_layout == 'logo_hero' %}
+			{% include 'partial/hero_1.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'parallax_hero' %}
+			{% include 'partial/hero_2.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'static_hero' %}
+			{% include 'partial/hero_3.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'body_heading' %}
+			{% include 'partial/body_heading.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text' %}
+			{% include 'partial/two_column_text.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text_row_test' %}
+			{% include 'partial/two_column_text_row.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'video' %}
+			{% include 'partial/video.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img_txt_overlay' %}
+			{% include 'partial/img_txt_overlay.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos_columns' %}
+			{% include 'partial/text_and_logos_columns.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos_fullwidth' %}
+			{% include 'partial/text_and_logos_fullwidth.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'contact_map' %}
+			{% include 'partial/contact_map.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'profile' %}
+			{% include 'partial/profile.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'quotes' %}
+			{% include 'partial/quotes.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img-column-txt-column' %}
+			{% include 'partial/img_column_txt_column.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'four_columns' %}
+			{% include 'partial/four_columns.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'full_row_width_image' %}
+			{% include 'partial/full_row_width_image.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_half_row_width_images' %}
+			{% include 'partial/two_half_row_width_images.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img_txt_row' %}
+			{% include 'partial/img_txt_row.twig' %}
+
+
+		{% elseif row_item.acf_fc_layout == 'raw_html' %}
+			{% include 'partial/raw_html.twig' %}
+
+		{% endif %}
+
+	{% endfor %}
+
+	<div
+		class="social-share"
+	>
+		<div class="section">
+			<div class="columns">
+				<div class="column is-two-thirds has-text-centered">
+					<h4 class="is-size-4 is-size-5-touch">Social Share</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 
 {% endblock %}

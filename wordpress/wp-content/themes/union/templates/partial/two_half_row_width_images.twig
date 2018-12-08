@@ -1,0 +1,19 @@
+<div
+    class="module two_half_row_width_images {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-one-half">
+                <img sizes="100vw, (min-width: 768px) 50vw"
+                     srcset="{{ TimberImage(row_item.image_left).src | resize(440) }} 440w, {{ TimberImage(row_item.image_left).src | resize(880) }} 880w"
+                     src="{{ TimberImage(row_item.image_left).src }}" alt="{{ TimberImage(row_item.image_left).alt }}">
+            </div>
+            <div class="column is-one-half">
+                <img sizes="100vw, (min-width: 768px) 50vw"
+                     srcset="{{ TimberImage(row_item.image_right).src | resize(440) }} 440w, {{ TimberImage(row_item.image_right).src | resize(880) }} 880w"
+                     src="{{ TimberImage(row_item.image_right).src }}" alt="{{ TimberImage(row_item.image_right).alt }}">
+            </div>
+        </div>
+    </div>
+</div>

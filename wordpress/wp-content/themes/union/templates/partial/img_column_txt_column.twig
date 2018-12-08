@@ -1,0 +1,18 @@
+<div
+    class="module img_column_txt_column {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+    style="background-color:{{row_item.background_colour}}"
+>
+    <div class="section">
+        {% for column in row_item.row %}
+            <div class="columns is-mobile">
+                <div class="column is-narrow-mobile is-2-tablet has-text-centered {% if row_item.align_column == 'right' %}is-offset-6-tablet{% endif %}">
+                    <img src="{{ TimberImage(column.image).src }}" srcset="{{ TimberImage(column.image).src | retina(2) }} 2x" alt="{{column.image.alt}}">
+                </div>
+                <div class="column is-one-third-tablet">
+                    {{column.text}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

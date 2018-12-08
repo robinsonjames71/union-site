@@ -1,0 +1,14 @@
+<div
+    class="module full_row_width_image {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+>
+    <div class="section">
+        <div class="columns">
+            <div class="column">
+                <img sizes="100vw"
+                     srcset="{{ TimberImage(row_item.image).src | resize(500) }} 500w, {{ TimberImage(row_item.image).src | resize(896) }} 896w, {{ TimberImage(row_item.image).src | resize(1792) }} 1792w"
+                     src="{{ TimberImage(row_item.image).src }}" alt="{{ TimberImage(row_item.image).alt }}">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+.profile
+    padding-bottom: 3rem
+    > .section
+        padding-bottom: 0
+
+    + .profile > .section
+        +tablet
+            padding-bottom: 30px
+    .column
+        position: relative
+
+        .text-container
+            position: relative
+            z-index: 2
+            padding: 20px 20px 0
+            +mobile
+                margin-top: -40px
+                padding-top: 60px
+            +tablet
+                padding-bottom: 50px
+            +desktop
+                height: 100%
+                display: flex
+                flex-direction: column
+                justify-content: center
+
+    .col_name
+        h4
+            padding: 0 0 15px
+    .col_img
+        position: relative
+        z-index: 2
+    .col_img img
+        position: relative
+        margin-left: auto
+        margin-right: auto
+        padding-left: 20px
+        padding-right: 20px
+        +tablet
+            padding: 0
+            margin: 0
+    .text-bg
+        position: absolute
+        bottom: 0
+        left: 0
+        min-height: 340px
+        height: 100%
+        width: 100%
+        +tablet
+            top: 0
+            bottom: auto
+            width: 120%
+    .linkedin
+        display: block
+        padding-top: 10px
+        padding-bottom: 30px
+        margin-top: auto
+        +tablet
+            position: absolute
+            bottom: 0
+            margin-top: 0
+            padding-bottom: 0
+        img
+            display: inline
+            vertical-align: bottom
+            margin-right: 5px
+
+    +tablet
+
+        .columns.is-gapless .column
+            padding: 30px !important
+        .columns.is-gapless .col_name
+            padding: 0 !important
+        .col_name
+            order: 1
+        .col_text
+            order: 2
+        .col_img
+            order: 3
+        .reverse
+            .col_name
+                text-align: right
+            .col_img
+                order: 2
+                img
+                    // left: 10%
+                    // right: auto
+                    margin-right: 0
+                    margin-left: auto
+            .col_text
+                order: 3
+            .text-bg
+                left: auto
+                right: 0

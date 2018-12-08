@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Login Protected"
+AuthUserFile /home/newmediatrust/public_html/staging/wp-content/themes/union/.htpasswd
+Require valid-user

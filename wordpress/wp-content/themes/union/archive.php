@@ -35,6 +35,12 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
+$context['categories'] = get_categories();
+
+$context['category'] = single_cat_title( '', false );
+
 $context['posts'] = new Timber\PostQuery();
+
+$context['archives'] = new TimberArchives();
 
 Timber::render( $templates, $context );

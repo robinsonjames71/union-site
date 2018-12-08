@@ -1,9 +1,21 @@
-{% extends "tease.twig" %}
 
 {% block content %}
-	<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.preview.length(25)}}</p>
-		{% if post.thumbnail.src %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
+	<div class="column is-one-third-tablet post-col">
+		<article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}" >
+			<div class="post-image">
+				{% if post.thumbnail.src %}
+					<img src="{{ TimberImage(post.thumbnail).src | resize(576, 336) }}" />
+				{% endif %}
+			</div>
+			<div class="post-text">
+				<p class="post-detail {{ post.category | lower | replace({' ': '-'}) }}">{{post.category}} | {{post.date}}</p>
+				<h5><strong>{{post.title}}</strong></h5>
+				<p>{{ post.preview_text|length > 90 ? post.preview_text|slice(0, 90) ~ '...' : post.preview_text  }}</p>
+
+				<p class="read-more">
+					<a href="{{post.link}}">Read More</a>
+				</p>
+			</div>
+		</article>
+	</div>
 {% endblock %}

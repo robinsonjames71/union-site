@@ -30,7 +30,6 @@
     "jquery": "^3.2.1",
     "laravel-mix": "^1.6.1",
     "lodash": "^4.17.4",
-    "pace": "0.0.4",
     "pace-js": "^1.0.2",
     "scrollreveal": "^3.3.6",
     "slick-carousel": "^1.8.1",
@@ -43,6 +42,7 @@
     "vue-router": "^3.0.1"
   },
   "dependencies": {
+    "rellax": "^1.6.2",
     "waypoints": "^4.0.1"
   }
 }

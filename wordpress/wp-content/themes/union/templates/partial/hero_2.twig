@@ -3,19 +3,31 @@
 	id="{{row_item.row_id}}"
 >
 
-	<img src="{{ TimberImage(row_item.image).src }}" alt="Union">
+	<img
+		sizes="100vw"
+		srcset="{{ TimberImage(row_item.background_image.image).src | retina(2) }} 2x, {{ TimberImage(row_item.background_image.image).src | resize(1000) }} 1000w, {{ TimberImage(row_item.background_image.image).src | resize(500) }} 500w"
+		src="{{ TimberImage(row_item.background_image.image).src }}"
+		data-rellax-speed="{{row_item.background_image.background_parallax_speed}}"
+		data-rellax-percentage="0"
+		class="background-image rellax"
+		alt="Union">
 
-	<div class="image-parallax">
-		<img src="{{ TimberImage(row_item.image_parallax).src }}" alt="{{ row_item.image_parallax.alt }}">
+	<div
+		class="image-parallax rellax"
+		data-rellax-speed="{{row_item.foreground_parallax_image.image_parallax_speed}}"
+		data-rellax-percentage="{{row_item.foreground_parallax_image.image_parallax_offset}}"
+	>
+		<img
+			sizes="100vw"
+			srcset="{{ TimberImage(row_item.foreground_parallax_image.image_parallax).src | retina(2) }} 2x, {{ TimberImage(row_item.foreground_parallax_image.image_parallax).src | resize(1000) }} 1000w, {{ TimberImage(row_item.foreground_parallax_image.image_parallax).src | resize(500) }} 500w"
+			src="{{ TimberImage(row_item.foreground_parallax_image.image_parallax).src }}"
+			alt="{{ row_item.foreground_parallax_image.image_parallax.alt }}">
 	</div>
 
-	<div class="hero-text">
-		<div class="container">
-			<div class="columns">
-				<div class="column is-4-desktop has-text-centered">
-					<h1>{{row_item.text_parallax}}</h1>
-				</div>
-			</div>
-		</div>
-	</div>
+	<h2 class="under rellax" data-rellax-speed="{{row_item.text.text_parallax_speed}}" data-rellax-percentage="{{row_item.text.text_parallax_offset}}">
+		<span>{{row_item.text.text_parallax_layer}}</span><span>{{row_item.text.text_parallax_foreground_layer}}</span>
+	</h2>
+	<h2 class="over rellax" data-rellax-speed="{{row_item.text.text_parallax_speed}}" data-rellax-percentage="{{row_item.text.text_parallax_offset}}">
+		<span>{{row_item.text.text_parallax_layer}}</span><span>{{row_item.text.text_parallax_foreground_layer}}</span>
+	</h2>
 </div>

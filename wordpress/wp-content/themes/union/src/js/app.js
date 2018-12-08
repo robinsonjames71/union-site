@@ -1,116 +1,12 @@
 // import Blazy from 'blazy'
-import ScrollReveal from 'scrollreveal'
 import stickybits from 'stickybits'
-import Slick from 'slick-carousel'
-import tingle from 'tingle.js'
-// import Waypoint from 'waypoints'
-// import Vue from 'vue'
-// import VeeValidate from 'vee-validate';
+import Rellax from 'rellax'
 window.$ = window.jQuery = require('jquery')
 
-require('../../node_modules/waypoints/lib/jquery.waypoints.js')
+require('../../node_modules/waypoints/lib/jquery.waypoints.min.js')
+require('../../node_modules/waypoints/lib/shortcuts/sticky.min.js')
 require('./vendor/scrolloverflow.js')
-require('./vendor/fullpage.fadingEffect.min.js')
-require('./vendor/fullpage.scrollOverflowReset.min.js')
-import 'fullpage.js/dist/jquery.fullpage.extensions.min.js'
-// import 'tilt.js'
 
-// tilt for content
-
-// const tilt = $('.page-id-108 .content-block').tilt({
-//   maxTilt: 4
-// });
-
-// IE fix for sticky nav on the product page. It's position has bottom:0 so you can't see the content
-if ( $('body').hasClass('page-id-102') ) {
-	$(document).scroll(function() {
-		//console.log($(document).scrollTop());
-		if ( $(document).scrollTop() > 0 ) {
-			$('.product-page-nav').addClass('ie-fix');
-		} else {
-			$('.product-page-nav').removeClass('ie-fix');
-		}
-	});
-}
-
-// modals
-
-var modal = new tingle.modal({
-    // footer: true,
-    // stickyFooter: false,
-    closeMethods: ['overlay', 'button', 'escape'],
-    closeLabel: "Close",
-    // cssClass: ['custom-class-1', 'custom-class-2'],
-    // onOpen: function() {
-    //     console.log('modal open');
-    // },
-    // onClose: function() {
-    //     console.log('modal closed');
-    // },
-    beforeClose: function() {
-      modal.setContent('')
-      // here's goes some logic
-      // e.g. save content before closing the modal
-      return true; // close the modal
-    	return false; // nothing happens
-    }
-});
-
-$('.content-block--video__embed__play').on('click', function() {
-  // console.log($(this).data('modal-content'));
-  modal.setContent($(this).data('modal-content'))
-  modal.open()
-})
-
-$('.show-modal').on('click', function(e) {
-  e.preventDefault()
-  // console.log($(this).data('modal-content'));
-  modal.setContent($(this).data('modal-content'))
-  modal.open()
-})
-
-// Slick
-
-$('.slick').slick({
-  autoplay: true,
-  arrows: true,
-  fade: true,
-  lazyLoad: 'progressive'
-})
-
-$('.slick-product').slick({
-  autoplay: true,
-  arrows: true,
-	dots: true,
-  fade: true,
-  lazyLoad: 'progressive'
-})
-
-// scrollreveal
-
-window.sr = ScrollReveal({
-  scale: 1,
-  duration: 500,
-  delay: 200,
-});
-
-// sr.reveal('.split-text');
-// sr.reveal('.hero-text');
-
-
-// home full page
-var fadingEffectKey = '';
-var scrollOverflowResetKey = '';
-
-if ( location.hostname == 'sprinter.theroyals.com.au' ) {
-	//staging
-	fadingEffectKey = 'dGhlcm95YWxzLmNvbS5hdV8wcFVabUZrYVc1blJXWm1aV04wR3BT'
-	scrollOverflowResetKey = 'dGhlcm95YWxzLmNvbS5hdV9FM2pjMk55YjJ4c1QzWmxjbVpzYjNkU1pYTmxkQT09OHRF';
-} else {
-	//live
-	fadingEffectKey = 'eC1jbGFzcy5jb20uYXVfMlM2Wm1Ga2FXNW5SV1ptWldOMDE2UQ==';
-	scrollOverflowResetKey = 'eC1jbGFzcy5jb20uYXVfcjgzYzJOeWIyeHNUM1psY21ac2IzZFNaWE5sZEE9PVVFNQ==';
-}
 /*
 *  new_map
 *
@@ -129,12 +25,135 @@ function new_map( $el ) {
   // var
   var $markers = $el.find('.marker');
 
-
   // vars
   var args = {
-    zoom    : 16,
-    center    : new google.maps.LatLng(0, 0),
-    mapTypeId : google.maps.MapTypeId.ROADMAP
+      zoom: 15,
+      center: new google.maps.LatLng(0, 0),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
+      styles: [{
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#f5f5f5'
+              }]
+          },
+          {
+              elementType: 'labels.icon',
+              stylers: [{
+                  visibility: 'off'
+              }]
+          },
+          {
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#616161'
+              }]
+          },
+          {
+              elementType: 'labels.text.stroke',
+              stylers: [{
+                  color: '#f5f5f5'
+              }]
+          },
+          {
+              featureType: 'administrative.land_parcel',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#bdbdbd'
+              }]
+          },
+          {
+              featureType: 'poi',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#eeeeee'
+              }]
+          },
+          {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#757575'
+              }]
+          },
+          {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#e5e5e5'
+              }]
+          },
+          {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#9e9e9e'
+              }]
+          },
+          {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#ffffff'
+              }]
+          },
+          {
+              featureType: 'road.arterial',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#757575'
+              }]
+          },
+          {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#dadada'
+              }]
+          },
+          {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#616161'
+              }]
+          },
+          {
+              featureType: 'road.local',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#9e9e9e'
+              }]
+          },
+          {
+              featureType: 'transit.line',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#e5e5e5'
+              }]
+          },
+          {
+              featureType: 'transit.station',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#eeeeee'
+              }]
+          },
+          {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{
+                  color: '#c9c9c9'
+              }]
+          },
+          {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{
+                  color: '#9e9e9e'
+              }]
+          }
+      ]
   };
 
 
@@ -241,7 +260,7 @@ function center_map( map ) {
   {
     // set center of map
       map.setCenter( bounds.getCenter() );
-      map.setZoom( 16 );
+      map.setZoom( 15 );
   }
   else
   {
@@ -254,22 +273,32 @@ function center_map( map ) {
 // global var
 var map = null;
 $(document).ready(() => {
-  // $('#fullpage').fullpage({
-  //   fadingEffect: true,
-  //   fadingEffectKey: fadingEffectKey,
-  //   scrollOverflow: true,
-  //   scrollOverflowReset: true,
-  //   scrollOverflowResetKey: scrollOverflowResetKey,
-  //   // loopBottom: true,
-  //   // loopTop: true
-  // });
-	// $('#fullpage').fullpage();
-  // var waypoint = new Waypoint({
-  //   element: $('.img_txt_overlay')[0],
-  //   handler: function(direction) {
-  //     console.log(this.id + ' hit')
-  //   }
-  // })
+  if($('body').hasClass('home')) {
+    window.scrollTo(0,0);
+    $('body').css({'height': '100vh', 'overflow': 'hidden'});
+    setTimeout(function(){
+      $('body').css({'height': 'auto', 'overflow': 'auto'});
+      var scrollToPosition = $('.hero1').next().offset().top;
+      $('html, body').animate({scrollTop:scrollToPosition}, 1000, 'swing')
+    }, 4000)
+  }
+
+  if ($('.rellax').length) {
+    var rellax = new Rellax('.rellax');
+  }
+
+  // Quotes page
+  $('.quotes a').on('click', function(e){
+    e.preventDefault();
+    console.log($(this).text());
+    if($(this).find('span').text() === 'Read More') {
+      $(this).closest('.quote').find('.readmore-text').css({'max-height': '600px'});
+      $(this).find('span').text('Close')
+    } else {
+      $(this).closest('.quote').find('.readmore-text').css({'max-height': '0'});
+      $(this).find('span').text('Read More')
+    }
+  })
 
   $('.acf-map').each(function(){
 
@@ -288,16 +317,17 @@ $(document).ready(() => {
     mainNavClasses('dark-menu');
   }
 
+  // Menu treatment
   function mainNavClasses(addClass) {
     var newClass = addClass || '';
     mainNav.removeClass('dark-left-menu').removeClass('dark-right-menu').removeClass('dark-menu').addClass(newClass);
   }
 
+  // Waypoints
   $('.dark-menu').each(function(){
     var darkwaypointsTop = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'down') {
-          console.log('darkwaypointsTop: ', direction);
           mainNavClasses('dark-menu');
         }
       },
@@ -309,12 +339,10 @@ $(document).ready(() => {
     var darkwaypointsBot = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'up') {
-        console.log('darkwaypointsBot: ', direction);
           mainNavClasses('dark-menu');
         }
       },
       offset: function() {
-        // console.log($(this));
         return -this.element.clientHeight
       }
     })
@@ -324,7 +352,6 @@ $(document).ready(() => {
     var darkwaypointsTop = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'down') {
-          console.log('darkwaypointsTop: ', direction);
           mainNavClasses('dark-left-menu');
         }
       },
@@ -336,12 +363,10 @@ $(document).ready(() => {
     var darkwaypointsBot = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'up') {
-        console.log('darkwaypointsBot: ', direction);
           mainNavClasses('dark-left-menu');
         }
       },
       offset: function() {
-        // console.log($(this));
         return -this.element.clientHeight
       }
     })
@@ -351,7 +376,6 @@ $(document).ready(() => {
     var darkwaypointsTop = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'down') {
-          console.log('darkwaypointsTop: ', direction);
           mainNavClasses('dark-right-menu');
         }
       },
@@ -363,12 +387,10 @@ $(document).ready(() => {
     var darkwaypointsBot = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'up') {
-        console.log('darkwaypointsBot: ', direction);
           mainNavClasses('dark-right-menu');
         }
       },
       offset: function() {
-        // console.log($(this));
         return -this.element.clientHeight
       }
     })
@@ -379,8 +401,6 @@ $(document).ready(() => {
     var lightwaypointsTop = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'down') {
-        // console.log(this.element.clientHeight);
-        console.log('lightwaypointsTop: ', direction);
           mainNavClasses();
         }
       },
@@ -392,122 +412,104 @@ $(document).ready(() => {
     var lightwaypointsBot = $(this).waypoint({
       handler: function(direction) {
         if (direction === 'up') {
-        console.log('lightwaypointsBot: ', direction);
           mainNavClasses();
         }
       },
       offset: function() {
-        // console.log(this);
         return -this.element.clientHeight
       }
     })
   })
 
-  $('a[href*="#"]').on('click touchend', function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+  if($('.nav-main').index() !== 0 && window.innerWidth > 768) {
+    var sticky = new Waypoint.Sticky({
+      element: $('.nav-main')[0]
+    })
+  }
 
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      $('.mobile_menu').prop('checked', false);
-      if (target.length) {
-        setTimeout(function() {window.scroll(0,target.offset().top - 60);},1) //offset height of header here too.
-        return false;
-      }
-    }
-  });
+  // $('a[href*="#"]').on('click touchend', function() {
+  //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 
-  // Causing Sizzle Error
-  // Executed on page load with URL containing an anchor tag.
-  // if($(location.href.split("#")[1])) {
-  //   var target = $('#'+location.href.split("#")[1]);
-  //   if (target.length) {
-  //     setTimeout(function() {window.scroll(0,target.offset().top - 60);},1) //offset height of header here too.
-  //     return false;
+  //     var target = $(this.hash);
+  //     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+  //     $('.mobile_menu').prop('checked', false);
+  //     if (target.length) {
+  //       setTimeout(function() {window.scroll(0,target.offset().top - 60);},1) //offset height of header here too.
+  //       return false;
+  //     }
   //   }
-  // }
+  // });
 
-  // Slider table code >>
-
-  $(".progressbar li, .progress_text li").on('click', function(){
-    var currentIndex = $(this).index() + 1;
-    $('.progressbar li, .progress_text li, .mobile_sub_text h2, img, table').removeClass('on').removeClass("active");
-    $(".progressbar li:nth-child(" + currentIndex + ")").addClass('on');
-    $(".progress_text li:nth-child(" + currentIndex + ")").addClass('on');
-    $(".image" + currentIndex).addClass('active');
-    $(".stats" + currentIndex).addClass('active');
-    $(".mobile_sub_text h2:nth-child(" + currentIndex + ")").addClass('active');
+  // product page sticky menu
+  let stuck = false;
+  let stickyNav;
+  if (window.innerWidth >= 901) {
+    stuck = true;
+    stickyNav = stickybits('#product-page-nav');
+  }
+  $(window).on('resize', function(){
+    if(window.innerWidth <= 900 && stuck) {
+      stuck = false;
+      stickyNav.cleanup();
+    }
+    if (window.innerWidth >= 901 && !stuck) {
+      stuck = true;
+      stickyNav = stickybits('#product-page-nav');
+    }
   })
 
-  // End slider table code
-
-  $('p').each(function(item) {
-    $(this).html($(this).html().replace('+', '<span class="font-normalize">+</span>'));
-    $(this).html($(this).html().replace('©', '<span class="font-normalize">©</span>'));
+  // read more buttons
+  $('.read-more, .read-less').on('click', function() {
+    $(this).parent().toggleClass('read_more_text--active')
   })
+
+  // product features component
+  $('.features-table .column').on('mouseenter', function(){
+    $(this).css({
+      "border-top-color": "#209cee",
+      "cursor": "pointer"
+    })
+  })
+  $('.features-table-item').on('mouseout', function(){
+    $(this).css()
+  })
+
+  const $posts = $('.post-col');
+  const $morePosts = $('.columns.load a');
+  if($morePosts.length) {
+    $morePosts.on('click', function(e) {
+      e.preventDefault();
+      const firstHiddenPost = $('.post-col:hidden').index();
+      let revealNo = 9;
+      for(let i = firstHiddenPost; i < firstHiddenPost + revealNo || i < $posts.length; i++) {
+        $posts.eq(i).show();
+      }
+      if(!$('.post-col:hidden').length) {
+        $('.columns.load').hide();
+      }
+    })
+  }
 
 });
 
 
+// $.fn.scrollAcrossTable = function(scrollParent) {
 
-// $('.home-scroll-down').on('click', function(){
-//   $.fn.fullpage.moveSectionDown()
-// });
+//   $(this).on('click', function() {
 
+//     let offset = 0
 
+//     if (scrollParent.scrollLeft() === 0) {
+//       offset = scrollParent.find('thead tr th').first().innerWidth() - 20
+//     }
 
-// product page sticky menu
-let stuck = false;
-let stickyNav;
-if (window.innerWidth >= 901) {
-  stuck = true;
-  stickyNav = stickybits('#product-page-nav');
-}
-$(window).on('resize', function(){
-  if(window.innerWidth <= 900 && stuck) {
-    stuck = false;
-    stickyNav.cleanup();
-  }
-  if (window.innerWidth >= 901 && !stuck) {
-    stuck = true;
-    stickyNav = stickybits('#product-page-nav');
-  }
-})
+//     scrollParent.animate({ scrollLeft: scrollParent.find('thead tr th').eq(2).innerWidth() + scrollParent.scrollLeft() + offset
+//     }, 'medium')
+//   });
 
-// read more buttons
-$('.read-more, .read-less').on('click', function() {
-  $(this).parent().toggleClass('read_more_text--active')
-})
+//   return this
 
-// product features component
-$('.features-table .column').on('mouseenter', function(){
-  // console.log("hello");
-  $(this).css({
-    "border-top-color": "#209cee",
-    "cursor": "pointer"
-  })
-})
-$('.features-table-item').on('mouseout', function(){
-  $(this).css()
-})
+// }
 
-
-$.fn.scrollAcrossTable = function(scrollParent) {
-
-  $(this).on('click', function() {
-
-    let offset = 0
-
-    if (scrollParent.scrollLeft() === 0) {
-      offset = scrollParent.find('thead tr th').first().innerWidth() - 20
-    }
-
-    scrollParent.animate({ scrollLeft: scrollParent.find('thead tr th').eq(2).innerWidth() + scrollParent.scrollLeft() + offset
-    }, 'medium')
-  });
-
-  return this
-
-}
-
-$(".comparison-table__scroller").scrollAcrossTable($('#comparison-table-scroller'))
+// $(".comparison-table__scroller").scrollAcrossTable($('#comparison-table-scroller'))
 

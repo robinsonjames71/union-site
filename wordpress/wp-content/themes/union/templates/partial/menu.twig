@@ -1,15 +1,19 @@
-<div class="product-page-nav pace-loadin" id="product-page-nav">
-    <input type="checkbox" id="mobile_menu" class="mobile_menu">
-    <label class="burger" for="mobile_menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-	<div class="container">
-		<div class="section-nav">
-			{% for menu_item in row_item.menu_items %}
-				<a href="{{ menu_item.link["url"] }}" {{ (menu_item.link["target"] != "" ? "target='" ~ menu_item.link["target"] ~ "'" : "") }} class="button is-black {{ menu_item.css_class }}" style="background-color:{{ menu_item.background_colour }};">{{ menu_item.link["title"] }}</a>
-			{% endfor %}
-		</div>
-	</div>
-</div>
+<nav id="nav-main" class="nav-main nav-main--desktop" role="navigation">
+    <div class="nav-main-home">
+        <a target="{{ item.target }}" href="/">
+            <img class="is-hidden-tablet" src="{{ site.theme.link }}/img/union_wordmark.png" srcset="{{ site.theme.link }}/img/union_wordmark@2x.png 2x" alt="Union">
+            <img class="is-hidden-mobile" src="{{ site.theme.link }}/img/union_logo_white_black.png" srcset="{{ site.theme.link }}/img/union_logo_white_black@2x.png 2x" alt="Union">
+            <img class="is-hidden-mobile over" src="{{ site.theme.link }}/img/union_logo_red_white.png" srcset="{{ site.theme.link }}/img/union_logo_red_white@2x.png 2x" alt="Union">
+        </a>
+    </div>
+    <input type="checkbox" name="nav-main-menu--dropdown" id="nav-main-menu--dropdown">
+    <label class="nav-main-menu" for="nav-main-menu--dropdown">menu <div class="circle"></div></label>
+    <div class="nav-menu-list section">
+        <label class="nav-menu-close" for="nav-main-menu--dropdown">
+            <span></span>
+            <span></span>
+        </label>
+        {% include "menu.twig" with {'menu': menu_main.get_items} %}
+    </div>
+</nav>
+<div class="nav-main-placeholder is-hidden-tablet"></div>

@@ -1,0 +1,30 @@
+<div
+    class="module quotes {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+    style="background-color:{{row_item.background_colour}};"
+>
+  <div class="section">
+    {% for detail in row_item.quote %}
+    <div class="columns quote is-multiline"{% if loop.index > 1 %} style="border-top:1px solid #D8D8D8;padding-top:30px;"{% endif %}>
+      <div class="column is-two-thirds {% if detail.align_column == 'right' %}is-offset-one-third{% endif %}">
+        {{detail.quote_text}}
+        <div class="readmore-text">
+          {{detail.quote_readmore_text}}
+        </div>
+      </div>
+      <div class="column is-two-thirds {% if detail.align_column == 'right' %}is-offset-one-third{% endif %}">
+        <div class="columns is-gapless">
+          <div class="column is-half">
+            <p class="quotee-name">{{detail.quotee}}</p>
+            <p class="quotee-position">{{detail.quotee_position}}</p>
+            <img class="quotee-logo" src="{{ TimberImage(detail.quotee_company_logo).src }}" srcset="{{ TimberImage(detail.quotee_company_logo).src | retina(2) }} 2x" alt="{{ detail.quotee_company_logo.alt }}">
+          </div>
+          <div class="column is-half">
+            <a href=""><div class="circle"></div> <span>Read More</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+	</div>
+</div>

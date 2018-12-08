@@ -3,22 +3,14 @@
     id="{{row_item.row_id}}"
 >
 
-    <picture>
-        <source media="(min-width: 768px)"
-                sizes="100vw"
-                srcset="{{ TimberImage(row_item.image).src | resize(1024) }} 1024w,
-                        {{ TimberImage(row_item.image).src | resize(512) }} 512w,
-                        {{ TimberImage(row_item.image).src | resize(2048) }} 2048w">
-        <img srcset="{{ TimberImage(row_item.image_mobile).src | resize(640) }} 640w,
-                     {{ TimberImage(row_item.image_mobile).src | resize(320) }} 320w"
-             src="{{ TimberImage(row_item.image_mobile).src | resize(320) }} 320w"
-             alt="{{ row_item.image_mobile.alt }}">
-    </picture>
+    <img sizes="100vw"
+         src="{{ TimberImage(row_item.image).src }}"
+         srcset="{{ TimberImage(row_item.image).src | retina(2) }} 2x, {{ TimberImage(row_item.image).src | resize(1000) }} 1000w, {{ TimberImage(row_item.image).src | resize(500) }} 500w" alt="{{ row_item.image_mobile.alt }}">
 
     <div class="hero-text">
         <div class="container">
-            <div class="columns">
-                <div class="column is-4-desktop has-text-centered">
+            <div class="columns is-centered is-mobile">
+                <div class="column has-text-centered">
                     <h1>{{row_item.title}}</h1>
                 </div>
             </div>

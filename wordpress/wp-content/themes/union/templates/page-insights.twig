@@ -1,0 +1,109 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	{% for row_item in page.get_field('row') %}
+
+		{% if row_item.acf_fc_layout == 'menu' %}
+			{% include 'partial/menu.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'logo_hero' %}
+			{% include 'partial/hero_1.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'parallax_hero' %}
+			{% include 'partial/hero_2.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'static_hero' %}
+			{% include 'partial/hero_3.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'body_heading' %}
+			{% include 'partial/body_heading.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text' %}
+			{% include 'partial/two_column_text.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'two_column_text_row_test' %}
+			{% include 'partial/two_column_text_row.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'video' %}
+			{% include 'partial/video.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img_txt_overlay' %}
+			{% include 'partial/img_txt_overlay.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos_columns' %}
+			{% include 'partial/text_and_logos_columns.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos_fullwidth' %}
+			{% include 'partial/text_and_logos_fullwidth.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'contact_map' %}
+			{% include 'partial/contact_map.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'profile' %}
+			{% include 'partial/profile.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'quotes' %}
+			{% include 'partial/quotes.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'img-column-txt-column' %}
+			{% include 'partial/img_column_txt_column.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'four_columns' %}
+			{% include 'partial/four_columns.twig' %}
+
+
+		{% elseif row_item.acf_fc_layout == 'raw_html' %}
+			{% include 'partial/raw_html.twig' %}
+
+		{% endif %}
+
+	{% endfor %}
+
+	{% for feature in page.get_field('feature_post') %}
+		<div class="section featured_post">
+			<div class="columns">
+				<div class="column is-one-third-tablet post-text">
+					<p class="post-detail {{ feature.category | lower | replace({' ': '-'}) }}">{{feature.category}} | {{feature.date}}</p>
+					<h5 class="post-title"><strong>{{feature.title}}</strong></h5>
+					<p class="post-preview">{{feature.preview_text}}</p>
+					<p class="read-more"><a href="{{feature.link}}">Read More</a></p>
+				</div>
+				{% if feature.get_thumbnail %}
+					<div class="column is-two-thirds-tablet post-image">
+						<img src="{{ TimberImage(feature.thumbnail).src | resize(1180, 640) }}" />
+					</div>
+				{% endif %}
+				<div class="column is-two-thirds-tablet background"></div>
+			</div>
+		</div>
+	{% endfor %}
+
+
+	<div class="section posts">
+		<div class="columns category-nav">
+			<div class="column">
+				<p>
+					<a href="#" class="disabled">All</a>
+					{% for category in categories %}
+						<a href="{{ site.url ~ '/' ~ category.name|lower|replace({' ': '-'}) }}">{{ category.name }}</a>
+					{% endfor %}
+				</p>
+			</div>
+		</div>
+		<div class="columns is-multiline">
+			{% for post in posts %}
+				{% include ["tease-"~post.post_type~".twig", "tease.twig"] %}
+			{% endfor %}
+		</div>
+
+		{% if postLength > 9 %}
+		<div class="columns load">
+			<div class="column has-text-centered">
+				<p class="read-more"><a href="#">Load More</a></p>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+
+{% endblock %}

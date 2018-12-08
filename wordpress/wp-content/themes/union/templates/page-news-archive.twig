@@ -1,0 +1,63 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <nav id="nav-main" class="nav-main nav-main--desktop dark-menu" role="navigation">
+        <div class="nav-main-home">
+            <a target="{{ item.target }}" href="/">
+                <img class="is-hidden-tablet" src="{{ site.theme.link }}/img/union_wordmark.png" srcset="{{ site.theme.link }}/img/union_wordmark@2x.png 2x" alt="Union">
+                <img class="is-hidden-mobile" src="{{ site.theme.link }}/img/union_logo_white_black.png" srcset="{{ site.theme.link }}/img/union_logo_white_black@2x.png 2x" alt="Union">
+                <img class="is-hidden-mobile over" src="{{ site.theme.link }}/img/union_logo_red_white.png" srcset="{{ site.theme.link }}/img/union_logo_red_white@2x.png 2x" alt="Union">
+            </a>
+        </div>
+        <input type="checkbox" name="nav-main-menu--dropdown" id="nav-main-menu--dropdown">
+        <label class="nav-main-menu" for="nav-main-menu--dropdown">menu <div class="circle"></div></label>
+        <div class="nav-menu-list section">
+            <label class="nav-menu-close" for="nav-main-menu--dropdown">
+                <span></span>
+                <span></span>
+            </label>
+            {% include "menu.twig" with {'menu': menu_main.get_items} %}
+        </div>
+    </nav>
+    <div class="nav-main-placeholder is-hidden-tablet"></div>
+
+	<div class="section title">
+		<div class="columns has-text-centered">
+			<div class="column">
+				<h2>{{ page.title }}</h2>
+			</div>
+		</div>
+	</div>
+
+
+    <div class="section archive">
+        <div class="columns">
+            <div class="column">
+                <p>Sort by category:</p>
+                {% for category in categories %}
+                    <p><a href="{{ site.url ~ '/' ~ category.name|lower|replace({' ': '-'}) }}">{{ category.name }}</a></p>
+                {% endfor %}
+                <p>Sort by date:</p>
+                {% set site_url = site.url %}
+                {% for item in archives.items %}
+                    {% set item_link = site.url ~ item.link|replace({(site_url):''}) %}
+
+                    <p><a href="{{ item.link }}">{{item.name}}</a></p>
+                    {% for child in item.children %}
+                        {% set child_link = site.url ~ child.link|replace({(site_url):''}) %}
+                        <p class="child"><a href="{{ child_link }}">{{child.name}}</a></p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section posts">
+        <div class="columns is-multiline">
+            {% for post in posts %}
+                {% include ["tease-"~post.post_type~".twig", "tease.twig"] %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

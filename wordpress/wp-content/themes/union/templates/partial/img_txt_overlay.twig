@@ -1,5 +1,5 @@
 <div
-    class="img_txt_overlay {{row_item.menu_colour}}-menu"
+    class="module img_txt_overlay {{row_item.menu_colour}}-menu"
     style="background-color:{{row_item.background_colour}};"
     id="{{row_item.row_id}}"
 >
@@ -7,8 +7,8 @@
         <div class="columns">
             <div class="column col1 is-two-thirds">
                 <img sizes="100vw, (min-width: 1024px) 50vw"
-                     srcset="{{ TimberImage(row_item.image).src | resize(700) }} 700w"
-                     src="{{ TimberImage(row_item.image).src | resize(800) }}" alt="">
+                     srcset="{{ TimberImage(row_item.image).src | resize(500) }} 500w, {{ TimberImage(row_item.image).src | resize(1000) }} 1000w"
+                     src="{{ TimberImage(row_item.image).src }}" alt="{{ TimberImage(row_item.image).alt }}">
             </div>
             <div class="column col2 is-two-thirds">
                 <h2 class="title is-size-2 is-size-3-touch">{{row_item.title}}</h2>

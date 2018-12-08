@@ -31,37 +31,30 @@
 		{% elseif row_item.acf_fc_layout == 'img_txt_overlay' %}
 			{% include 'partial/img_txt_overlay.twig' %}
 
-		{% elseif row_item.acf_fc_layout == 'text_and_logos' %}
-			{% include 'partial/text_and_logos.twig' %}
+		{% elseif row_item.acf_fc_layout == 'text_and_logos_columns' %}
+			{% include 'partial/text_and_logos_columns.twig' %}
+
+		{% elseif row_item.acf_fc_layout == 'text_and_logos_fullwidth' %}
+			{% include 'partial/text_and_logos_fullwidth.twig' %}
 
 		{% elseif row_item.acf_fc_layout == 'contact_map' %}
 			{% include 'partial/contact_map.twig' %}
 
+		{% elseif row_item.acf_fc_layout == 'profile' %}
+			{% include 'partial/profile.twig' %}
 
+		{% elseif row_item.acf_fc_layout == 'quotes' %}
+			{% include 'partial/quotes.twig' %}
 
-		{% elseif row_item.acf_fc_layout == 'image_left_text_right' %}
-			{% include 'partial/image_left_text_right.twig' %}
+		{% elseif row_item.acf_fc_layout == 'img-column-txt-column' %}
+			{% include 'partial/img_column_txt_column.twig' %}
 
-		{% elseif row_item.acf_fc_layout == 'text_left_image_right' %}
-			{% include 'partial/text_left_image_right.twig' %}
+		{% elseif row_item.acf_fc_layout == 'four_columns' %}
+			{% include 'partial/four_columns.twig' %}
 
-		{% elseif row_item.acf_fc_layout == 'background_image_text_overlay_on_right' %}
-			{% include 'partial/background_image_text_overlay_on_right.twig' %}
-
-		{% elseif row_item.acf_fc_layout == 'comparison_table' %}
-			{% include 'partial/comparison_table.twig' %}
-
-		{% elseif row_item.acf_fc_layout == 'specifications' %}
-			{% include 'partial/specifications.twig' %}
-
-		{% elseif row_item.acf_fc_layout == 'features' %}
-			{% include 'partial/features.twig' %}
 
 		{% elseif row_item.acf_fc_layout == 'raw_html' %}
 			{% include 'partial/raw_html.twig' %}
-
-		{% elseif row_item.acf_fc_layout == 'large_image_with_3_rows_below' %}
-			{% include 'partial/large_image_with_3_rows_below.twig' %}
 
 		{% endif %}
 

@@ -1,0 +1,33 @@
+<div
+    class="module profile {{row_item.menu_colour}}-menu"
+    style="background-color:{{row_item.background_colour}};"
+    id="{{row_item.row_id}}"
+>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-three-quarters-desktop {% if row_item.align_column == 'right' %}is-offset-one-quarter-desktop{% endif %}">
+                <div class="columns is-gapless is-multiline {% if row_item.align_column == 'right' %}reverse{% endif %}">
+                    <div class="column is-full col_name">
+                        {{row_item.name}}
+                    </div>
+                    <div class="column col_img is-one-half">
+                        <img sizes="70vw, (min-width: 1024px) 30vw"
+                             srcset="{{ TimberImage(row_item.image).src | resize(680, 680) }} 2x"
+                             src="{{ TimberImage(row_item.image).src | resize(340, 340) }}"
+                             alt="{{ row_item.image.alt }}">
+                    </div>
+                    <div class="column col_text is-one-half">
+                        <div class="text-bg" style="background-color:{{row_item.col1_background_colour}};"></div>
+                        <div class="text-container">
+                            {{row_item.text}}
+                            <a class="linkedin" href="{{row_item.linkedin_url}}" target="_blank">
+                                <img src="{{ site.theme.link }}/img/icon-linkedin.png" srcset="{{ site.theme.link }}/img/icon-linkedin@2x.png 2x" alt="Linked In">
+                                <span>Connect</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

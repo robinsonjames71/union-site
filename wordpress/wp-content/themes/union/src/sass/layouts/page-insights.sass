@@ -1,0 +1,81 @@
+.body-content
+    width: 100vw
+    overflow: hidden
+
+.featured_post
+    margin-top: 4rem
+    +tablet
+        margin-top: 8rem
+
+    .section,
+    .columns
+        position: relative
+    .post-text
+        background-color: #F7F7F7
+        padding: 1rem
+        +tablet
+            margin-top: -1rem
+            padding: 0 0 0 2rem
+            background-color: transparent
+    .post-image
+        padding: 0
+    .background
+        +tablet
+            background-color: #F7F7F7
+            position: absolute
+            height: 95%
+            top: -4rem
+            left: 0
+            z-index: -1
+
+.featured_post + .posts
+    margin-top: 6rem
+
+.posts
+    background-color: #F7F7F7
+    padding-top: 2rem
+    padding-bottom: 2rem
+    .category-nav
+        text-align: center
+        a
+            margin: 0 2rem
+            &.disabled
+                color: #9B9B9B
+                cursor: default
+            &::before
+                display: none
+                content: none
+    .post-col:nth-child(9) ~ .post-col
+        display: none
+
+    .post-text
+        padding: 1rem
+        flex-grow: 1
+        .read-more
+            position: absolute
+            bottom: 1rem
+            left: 1rem
+
+.tease
+    position: relative
+    display: flex
+    flex-direction: column
+    height: 100%
+    padding-bottom: 3rem
+    background-color: #FFFFFF
+
+.post-preview
+    margin-top: 1rem
+.post-detail
+    margin-bottom: 1rem
+    font-size: 12px
+
+    &.opinion
+        color: #006EA2
+    &.news
+        color: #666666
+    &.case-study
+        color: #F8473A
+
+.load
+    margin-bottom: 1.5rem

@@ -1,0 +1,25 @@
+<div
+    class="module text_and_logos_columns {{row_item.menu_colour}}-menu"
+    id="{{row_item.row_id}}"
+    style="background-color:{{row_item.background_colour}}"
+>
+  <div class="section">
+    <div class="columns is-gapless is-centered">
+      <div class="column is-one-third col1" style="background-color:{{row_item.col1_background_colour}};">
+        {{row_item.title}}
+      </div>
+
+      <div class="column is-two-thirds col2" style="background-color:{{row_item.col2_background_colour}};">
+        <div class="section">
+          <div class="columns is-multiline is-mobile">
+            {% for single_logo in row_item.logos %}
+              <div class="logo column is-6 has-text-centered">
+                <img src="{{ TimberImage(single_logo.logo).src }}" srcset="{{ TimberImage(single_logo.logo).src | retina(2) }} 2x" alt="{{ single_logo.logo.alt }}">
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>

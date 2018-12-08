@@ -39,7 +39,7 @@ function scripts() {
 
 	// Register the library again from Google's CDN
 	// wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), null );
-	wp_enqueue_script( 'googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD6hD_-KrPp5IbBd2Dyg8L_7RV5FWdghX4', array(), null, true );
+	wp_enqueue_script( 'googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyChUP58FeH4jcffdk-ELz6toefnWnQ-mxI', array(), null, true );
 	// wp_register_script( 'jquery', get_template_directory_uri() . "/bower_components/jquery/dist/jquery.min.js", array(), true );
 
 	// wp_enqueue_script( 'jquery' );
@@ -47,7 +47,6 @@ function scripts() {
 	// wp_enqueue_script( 'youtubeapi', 'http://www.youtube.com/iframe_api', array(), null, true );
 
 	// wp_enqueue_script( 'googlemapsapijs', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array('jquery') );
-	wp_enqueue_script( 'pace', get_template_directory_uri() . '/dist/vendor/pace.min.js', array(), null, false );
 	wp_enqueue_script( 'objectfitjs', get_template_directory_uri() . '/dist/vendor/polyfill.object-fit.min.js', array(), null, false );
 	wp_enqueue_script( 'picturefill', get_template_directory_uri() . '/dist/vendor/picturefill.min.js', array(), null, false );
 	// wp_enqueue_script( 'fadingEffect', get_template_directory_uri() . '/dist/vendor/fullpage.fadingEffect.min.js', array(), null, false );
