@@ -481,6 +481,9 @@ $(document).ready(() => {
       e.preventDefault();
       const firstHiddenPost = $('.post-col:hidden').index();
       let revealNo = 9;
+      if (window.innerWidth < 768) {
+        revealNo = 3;
+      }
       for(let i = firstHiddenPost; i < firstHiddenPost + revealNo || i < $posts.length; i++) {
         $posts.eq(i).show();
       }
