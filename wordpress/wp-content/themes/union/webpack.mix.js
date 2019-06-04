@@ -30,9 +30,9 @@ mix.js('src/js/app.js', 'dist/')
       processCssUrls: false
    });
 
-mix.sass('src/sass/vip.sass', 'dist/').options({
-   processCssUrls: false
-});
+// mix.sass('src/sass/vip.sass', 'dist/').options({
+//    processCssUrls: false
+// });
 
 // Full API
 // mix.js(src, output);

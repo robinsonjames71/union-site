@@ -3,3 +3,25 @@
     margin-bottom: 4rem
     +tablet
         margin-top: 8rem
+
+    h4
+        display: inline-block
+        position: relative
+        top: -18px
+        margin: 0 15px
+        +tablet
+            margin: 0
+
+.addthis_toolbox
+    display: inline-block
+    a
+        display: inline-block
+        margin-left: 15px
+        &:first-child
+            margin-left: 0
+            +tablet
+                margin-left: 15px
+
+.single p a::before
+    content: none
+    display: none
