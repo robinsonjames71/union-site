@@ -34,7 +34,7 @@
     "scrollreveal": "^3.4.0",
     "slick-carousel": "^1.8.1",
     "stickybits": "^2.1.2",
-    "svg-spritemap-webpack-plugin": "^1.2.0",
+    "svg-spritemap-webpack-plugin": "^4.5.0",
     "svg4everybody": "^2.1.9",
     "tilt.js": "^1.2.1",
     "tingle.js": "^0.13.2",
